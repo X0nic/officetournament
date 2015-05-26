@@ -1,4 +1,4 @@
-<form action="/login" method="post">
+<%= form_for @conn, login_path(@conn, :index), [name: :login], fn f -> %>
 
   <div class="form-group">
     <label>Login</label>
@@ -13,4 +13,4 @@
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
-</form>
+<% end %>
