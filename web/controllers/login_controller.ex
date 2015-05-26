@@ -10,9 +10,15 @@ defmodule Officetournament.LoginController do
     render(conn, "index.html")
   end
 
-  def login(conn, _params) do
+  def login(conn, %{"login" => %{"username" => username, "password" => password}}) do
     conn
-    |> put_flash(:info, "Login Sucessfull")
+    |> put_flash(:info, "Welcome #{username}! I like your password #{password}")
+    |> redirect(to: login_path(conn, :index))
+  end
+
+  def login(conn, params) do
+    conn
+    |> put_flash(:info, "Login Sucessfull for #{params["login[username]"]}")
     |> redirect(to: login_path(conn, :index))
   end
 end

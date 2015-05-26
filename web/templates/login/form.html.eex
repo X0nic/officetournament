@@ -1,14 +1,14 @@
 <%= form_for @conn, login_path(@conn, :index), [name: :login], fn f -> %>
 
   <div class="form-group">
-    <label>Login: 
-      <%= text_input f, :login %>
+    <label>Username: 
+      <%= text_input f, :username %>
     </label>
   </div>
 
   <div class="form-group">
     <label>Password: 
-      <%= password_input f, :login %>
+      <%= password_input f, :password%>
     </label>
   </div>
 
