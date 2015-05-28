@@ -4,12 +4,14 @@ defmodule Officetournament.User do
   schema "users" do
     field :name, :string
     field :email, :string
+    field :username, :string
+    field :password, :string
 
     timestamps
   end
 
-  @required_fields ~w(name email)
-  @optional_fields ~w()
+  @required_fields ~w(name email username)
+  @optional_fields ~w(password)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

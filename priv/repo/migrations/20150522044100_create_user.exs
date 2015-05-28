@@ -5,6 +5,8 @@ defmodule Officetournament.Repo.Migrations.CreateUser do
     create table(:users) do
       add :name, :string
       add :email, :string
+      add :username, :string
+      add :password, :string
 
       timestamps
     end

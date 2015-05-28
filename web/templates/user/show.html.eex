@@ -12,6 +12,11 @@
     <%= @user.email %>
   </li>
 
+  <li>
+    <strong>Username:</strong>
+    <%= @user.username %>
+  </li>
+
 </ul>
 
 <%= link "Back", to: user_path(@conn, :index) %>
