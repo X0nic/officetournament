@@ -2,6 +2,8 @@ defmodule Officetournament.LoginController do
   use Officetournament.Web, :controller
 
   alias Officetournament.Login
+  alias Officetournament.User
+
 
   plug :scrub_params, "login" when action in [:create, :update]
   plug :action
@@ -11,9 +13,20 @@ defmodule Officetournament.LoginController do
   end
 
   def login(conn, %{"login" => %{"username" => username, "password" => password}}) do
-    conn
-    |> put_flash(:info, "Welcome #{username}! I like your password #{password}")
-    |> redirect(to: login_path(conn, :index))
+    # query= from u in User
+    #        where: u.username = username
+
+    user = Repo.get_by(User, username: username)
+
+    if user do
+      conn
+      |> put_flash(:info, "Welcome #{user.username}! I like your password #{password}")
+      |> redirect(to: login_path(conn, :index))
+    else
+      conn
+      |> put_flash(:error, "Username not found.")
+      |> redirect(to: login_path(conn, :index))
+    end
   end
 
   def login(conn, params) do
