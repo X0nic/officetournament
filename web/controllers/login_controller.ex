@@ -18,7 +18,8 @@ defmodule Officetournament.LoginController do
 
   def login(conn, params) do
     conn
-    |> put_flash(:info, "Access Denied")
+    |> put_layout(false)
+    |> put_status(401)
     |> render "unauthorized.html"
   end
 end
