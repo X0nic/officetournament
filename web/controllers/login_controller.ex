@@ -18,7 +18,7 @@ defmodule Officetournament.LoginController do
 
   def login(conn, params) do
     conn
-    |> put_flash(:info, "Login Sucessfull for #{params["login[username]"]}")
-    |> redirect(to: login_path(conn, :index))
+    |> put_flash(:info, "Access Denied")
+    |> render "unauthorized.html"
   end
 end
