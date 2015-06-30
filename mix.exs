@@ -31,6 +31,7 @@ defmodule Officetournament.Mixfile do
   defp deps do
     [{:phoenix, "~> 0.12"},
      {:phoenix_ecto, "~> 0.3"},
+     {:phoenix_html, "~> 1.0"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_live_reload, "~> 0.3"},
      {:cowboy, "~> 1.0"}]
