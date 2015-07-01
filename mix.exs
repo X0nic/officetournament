@@ -17,7 +17,7 @@ defmodule Officetournament.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Officetournament, []},
-     applications: [:phoenix, :cowboy, :logger,
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
                     :phoenix_ecto, :postgrex]]
   end
 
@@ -29,11 +29,11 @@ defmodule Officetournament.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.12"},
-     {:phoenix_ecto, "~> 0.3"},
-     {:phoenix_html, "~> 1.0"},
+    [{:phoenix, "~> 0.14"},
+     {:phoenix_ecto, "~> 0.5"},
      {:postgrex, ">= 0.0.0"},
-     {:phoenix_live_reload, "~> 0.3"},
+     {:phoenix_html, "~> 1.1"},
+     {:phoenix_live_reload, "~> 0.4", only: :dev},
      {:cowboy, "~> 1.0"}]
   end
 end

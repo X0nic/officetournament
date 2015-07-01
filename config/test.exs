@@ -14,6 +14,9 @@ config :officetournament, Officetournament.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
+  database: "phoenix_test_test",
+  pool: Ecto.Adapters.SQL.Sandbox, # Use a sandbox for transactional testing
+  size: 1
   database: "officetournament_test",
   size: 1,
   max_overflow: 0

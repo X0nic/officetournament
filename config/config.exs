@@ -8,9 +8,9 @@ use Mix.Config
 # Configures the endpoint
 config :officetournament, Officetournament.Endpoint,
   url: [host: "localhost"],
-  root: Path.expand("..", __DIR__),
+  root: Path.dirname(__DIR__),
   secret_key_base: "KOH7mIjYisAYZvNCDZME1bJben5LpP4nL9gtzMYuZRcy2R860P1BXeMoWmtmt3cF",
-  debug_errors: false,
+  render_errors: [default_format: "html"],
   pubsub: [name: Officetournament.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
