@@ -1,1 +1,1 @@
-web: yes | mix compile.protocols && mix phoenix.digest && mix phoenix.server
+web: yes | mix compile.protocols && mix phoenix.server
