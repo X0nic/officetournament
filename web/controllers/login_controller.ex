@@ -6,7 +6,6 @@ defmodule Officetournament.LoginController do
 
 
   plug :scrub_params, "login" when action in [:create, :update]
-  plug :action
 
   def index(conn, _params) do
     render(conn, "index.html")

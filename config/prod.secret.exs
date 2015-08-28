@@ -10,4 +10,4 @@ config :officetournament, Officetournament.Endpoint,
 config :officetournament, Officetournament.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL") || "ecto://postgres:postgres@localhost/blog_backend_prod",
-  size: 20 # The amount of database connections in the pool
+  pool_size: 20
