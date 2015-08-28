@@ -4,10 +4,12 @@ use Mix.Config
 # you likely want to automate and keep it away from
 # your version control system.
 config :officetournament, Officetournament.Endpoint,
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
+  secret_key_base: "tBHe4cQjWWvp7Ql85aXB59bY7BpI7vTGXALgbhnRgO17IDzKnp6bDNrqP+TjhLQg"
 
 # Configure your database
 config :officetournament, Officetournament.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL") || "ecto://postgres:postgres@localhost/blog_backend_prod",
-  size: 20 # The amount of database connections in the pool
+  username: "postgres",
+  password: "postgres",
+  database: "officetournament_prod",
+  pool_size: 20

@@ -1,3 +1,0 @@
-<h2>Please Login</h2>
-
-<%= render "form.html", conn: @conn %>

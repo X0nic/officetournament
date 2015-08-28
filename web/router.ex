@@ -16,10 +16,7 @@ defmodule Officetournament.Router do
   scope "/", Officetournament do
     pipe_through :browser # Use the default browser stack
 
-    get "/", HomeController, :index
-    get "/login/", LoginController, :index
-    post "/login/", LoginController, :login
-    resources "/users", UserController
+    get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
