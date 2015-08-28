@@ -30,4 +30,4 @@ config :logger, :console, format: "[$level] $message\n"
 config :officetournament, Officetournament.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "officetournament_dev",
-  size: 10 # The amount of database connections in the pool
+  pool_size: 10 # The amount of database connections in the pool
