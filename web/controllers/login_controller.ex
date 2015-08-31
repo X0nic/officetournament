@@ -4,22 +4,24 @@ defmodule Officetournament.LoginController do
   alias Officetournament.Login
   alias Officetournament.User
 
-
+  plug :find_user
   plug :scrub_params, "login" when action in [:create, :update]
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    conn
+    |> render("index.html")
   end
 
   def login(conn, %{"login" => %{"username" => username, "password" => password}}) do
-    # query= from u in User
-    #        where: u.username = username
-
+    # user = Repo.all(from u in User, 
+    #                 where: u.username == ^username,
+    #                 select: u)
     user = Repo.get_by(User, username: username)
 
     if user do
       conn
       |> put_flash(:info, "Welcome #{user.username}! I like your password #{password}")
+      |> put_session(:username, username)
       |> redirect(to: login_path(conn, :index))
     else
       conn
@@ -33,5 +35,9 @@ defmodule Officetournament.LoginController do
     |> put_layout(false)
     |> put_status(401)
     |> render "unauthorized.html"
+  end
+
+  defp find_user(conn, params) do
+    conn |> assign(:username, "This is a test")
   end
 end

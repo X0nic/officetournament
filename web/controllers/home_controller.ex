@@ -6,6 +6,9 @@ defmodule Officetournament.HomeController do
   plug :scrub_params, "home" when action in [:create, :update]
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    conn
+    |> assign(:username, get_session(conn, :username))
+    |> assign(:message, "this is a message")
+    |> render("index.html")
   end
 end

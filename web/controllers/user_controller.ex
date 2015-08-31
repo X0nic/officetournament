@@ -44,6 +44,14 @@ defmodule Officetournament.UserController do
     user = Repo.get(User, id)
     changeset = User.changeset(user, user_params)
 
+  case Repo.update(changeset) do
+    {:ok, user} ->
+      conn
+      |> put_flash(:info, "User updated successfully.")
+      |> redirect(to: user_path(conn, :show, user))
+    {:error, changeset} ->
+      render(conn, "edit.html", user: user, changeset: changeset)
+  end
     if changeset.valid? do
       Repo.update(changeset)
 
