@@ -37,6 +37,12 @@ defmodule Officetournament.LoginController do
     |> render "unauthorized.html"
   end
 
+  def logout(conn, params) do
+    conn
+    |> put_session(:username, nil)
+    |> redirect(to: home_path(conn, :index))
+  end
+
   defp find_user(conn, params) do
     conn |> assign(:username, "This is a test")
   end

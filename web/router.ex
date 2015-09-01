@@ -19,6 +19,7 @@ defmodule Officetournament.Router do
     get "/", HomeController, :index
     get "/login/", LoginController, :index
     post "/login/", LoginController, :login
+    get "/logout/", LoginController, :logout
     resources "/users", UserController
   end
 
