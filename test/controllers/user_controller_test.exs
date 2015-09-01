@@ -31,31 +31,31 @@ defmodule Officetournament.UserControllerTest do
   end
 
   test "GET /users/:id", %{conn: conn} do
-    user = Repo.insert %User{}, @valid_params
+    user = Repo.insert! %User{}
     conn = get conn, user_path(conn, :show, user)
     assert html_response(conn, 200) =~ "Show user"
   end
 
   test "GET /users/:id/edit", %{conn: conn} do
-    user = Repo.insert %User{}
+    user = Repo.insert! %User{}
     conn = get conn, user_path(conn, :edit, user)
     assert html_response(conn, 200) =~ "Edit user"
   end
 
   test "PUT /users/:id with valid data", %{conn: conn} do
-    user = Repo.insert %User{}
+    user = Repo.insert! %User{}
     conn = put conn, user_path(conn, :update, user), @valid_params
-    assert redirected_to(conn) == user_path(conn, :index)
+    assert redirected_to(conn) == user_path(conn, :show, user)
   end
 
   test "PUT /users/:id with invalid data", %{conn: conn} do
-    user = Repo.insert %User{}
+    user = Repo.insert! %User{}
     conn = put conn, user_path(conn, :update, user), @invalid_params
     assert html_response(conn, 200) =~ "Edit user"
   end
 
   test "DELETE /users/:id", %{conn: conn} do
-    user = Repo.insert %User{}
+    user = Repo.insert! %User{}
     conn = delete conn, user_path(conn, :delete, user)
     assert redirected_to(conn) == user_path(conn, :index)
     refute Repo.get(User, user.id)
