@@ -2,8 +2,8 @@ defmodule Officetournament.UserControllerTest do
   use Officetournament.ConnCase
 
   alias Officetournament.User
-  @valid_params user: %{email: "some content", name: "some content"}
-  @invalid_params user: %{}
+  @valid_params user: %{email: "some content", name: "some content", username: "username"}
+  @invalid_params user: %{name: "just a name"}
 
   setup do
     conn = conn()
@@ -31,7 +31,7 @@ defmodule Officetournament.UserControllerTest do
   end
 
   test "GET /users/:id", %{conn: conn} do
-    user = Repo.insert %User{}
+    user = Repo.insert %User{}, @valid_params
     conn = get conn, user_path(conn, :show, user)
     assert html_response(conn, 200) =~ "Show user"
   end

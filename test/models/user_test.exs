@@ -3,8 +3,8 @@ defmodule Officetournament.UserTest do
 
   alias Officetournament.User
 
-  @valid_attrs %{email: "some content", name: "some content"}
-  @invalid_attrs %{}
+  @valid_attrs %{email: "some content", name: "some content", username: "ausername"}
+  @invalid_attrs %{email: "justan@email.com"}
 
   test "changeset with valid attributes" do
     changeset = User.changeset(%User{}, @valid_attrs)
