@@ -4,6 +4,7 @@ defmodule Officetournament.UserController do
   alias Officetournament.User
 
   plug :scrub_params, "user" when action in [:create, :update]
+  plug :require_login
 
   def index(conn, _params) do
     users = Repo.all(User)
@@ -70,5 +71,13 @@ defmodule Officetournament.UserController do
     conn
     |> put_flash(:info, "User deleted successfully.")
     |> redirect(to: user_path(conn, :index))
+  end
+
+  defp require_login(conn, _params) do
+    if get_session(conn, :username) do
+      conn
+    else
+      redirect(conn, to: home_path(conn, :index))
+    end
   end
 end
