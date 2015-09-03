@@ -26,10 +26,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<%= home_path @conn, :index %>">Home</a></li>
-            <li><a href="<%= login_path @conn, :index %>">Login</a></li>
-            <li><a href="<%= login_path @conn, :logout %>">Logout</a></li>
-            <li><a href="<%= user_path @conn, :index %>">Users</a></li>
+            <li "<%= "/" |> active(@conn) |> raw %>"><a href="<%= home_path @conn, :index %>">Home</a></li>
+            <li "<%= "/login" |> active(@conn) |> raw %>"><a href="<%= login_path @conn, :index %>">Login</a></li>
+            <li "<%= "/logout" |> active(@conn) |> raw %>"><a href="<%= login_path @conn, :logout %>">Logout</a></li>
+            <li "<%= "/users" |> active(@conn) |> raw %>"><a href="<%= user_path @conn, :index %>">Users</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -37,6 +37,7 @@ defmodule Officetournament.Web do
   def view do
     quote do
       use Phoenix.View, root: "web/templates"
+      # require Logger
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
@@ -45,6 +46,18 @@ defmodule Officetournament.Web do
       use Phoenix.HTML
 
       import Officetournament.Router.Helpers
+
+      def active(option, conn) do
+        # Logger.debug "We are at path #{conn.request_path} for option #{option}"
+
+        if option == conn.request_path do
+          # Logger.debug "We are active"
+          " class=\"active\""
+        else
+          # Logger.debug "We are not active"
+          ""
+        end
+      end
     end
   end
 
