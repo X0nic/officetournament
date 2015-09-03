@@ -39,7 +39,7 @@ defmodule Officetournament.LoginController do
 
   def logout(conn, params) do
     conn
-    |> put_session(:username, nil)
+    |> delete_session(:username)
     |> redirect(to: home_path(conn, :index))
   end
 
