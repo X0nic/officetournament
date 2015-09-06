@@ -45,6 +45,8 @@ defmodule Officetournament.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      import Officetournament.Form
+
       import Officetournament.Router.Helpers
 
       def active(option, conn) do

@@ -1,10 +1,8 @@
-<%= form_for @conn, login_path(@conn, :index), [name: :login], fn f -> %>
+<%= bootstrap_form_for @conn, login_path(@conn, :index), [name: :login], fn f -> %>
 
-  <div class="form-group">
-    <label>Username: 
-      <%= text_input f, :username %>
-    </label>
-  </div>
+  <label>Username: 
+    <%= bootstrap_text_input f, :username %>
+  </label>
 
   <div class="form-group">
     <label>Password: 
