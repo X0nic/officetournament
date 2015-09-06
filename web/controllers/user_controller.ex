@@ -77,7 +77,9 @@ defmodule Officetournament.UserController do
     if get_session(conn, :username) do
       conn
     else
-      redirect(conn, to: home_path(conn, :index))
+      conn
+      |> redirect(to: home_path(conn, :index))
+      |> halt
     end
   end
 end
