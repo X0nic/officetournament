@@ -5,9 +5,27 @@ defmodule Officetournament.Form do
     Phoenix.HTML.Form.form_for(form_data, action, options, fun)
   end
 
-  def bootstrap_text_input(form, field, opts \\ []) do
+  def bootstrap_text_input(form, field, text, opts \\ []) do
     Phoenix.HTML.Tag.content_tag :div, class: "form-group" do
-      Form.text_input(form, field, opts)
+      [
+        Form.label(form, field, text),
+        Form.text_input(form, field, opts)
+      ]
+    end
+  end
+
+  def bootstrap_password_input(form, field, text, opts \\ []) do
+    Phoenix.HTML.Tag.content_tag :div, class: "form-group" do
+      [
+        Form.label(form, field, text),
+        Form.password_input(form, field, opts)
+      ]
+    end
+  end
+
+  def bootstrap_submit(field, opts \\ []) do
+    Phoenix.HTML.Tag.content_tag :div, class: "form-group" do
+      Form.submit(field, opts)
     end
   end
 end

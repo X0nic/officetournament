@@ -1,16 +1,8 @@
 <%= bootstrap_form_for @conn, login_path(@conn, :index), [name: :login], fn f -> %>
 
-  <label>Username: 
-    <%= bootstrap_text_input f, :username %>
-  </label>
+  <%= bootstrap_text_input f, :username, "Username: " %>
 
-  <div class="form-group">
-    <label>Password: 
-      <%= password_input f, :password%>
-    </label>
-  </div>
+  <%= bootstrap_password_input f, :password, "Password: "%>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
+  <%= bootstrap_submit "Submit", class: "btn btn-primary" %>
 <% end %>
