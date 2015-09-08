@@ -10,27 +10,13 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <label>Name</label>
-    <%= text_input f, :name, class: "form-control" %>
-  </div>
+  <%= bootstrap_text_input f, :name, "Name", class: "form-control" %>
 
-  <div class="form-group">
-    <label>Email</label>
-    <%= text_input f, :email, class: "form-control" %>
-  </div>
+  <%= bootstrap_text_input f, :email, "Email", class: "form-control" %>
 
-  <div class="form-group">
-    <label>Username</label>
-    <%= text_input f, :username, class: "form-control" %>
-  </div>
+  <%= bootstrap_text_input f, :username, "Username", class: "form-control" %>
 
-  <div class="form-group">
-    <label>Password</label>
-    <%= text_input f, :password, class: "form-control" %>
-  </div>
+  <%= bootstrap_text_input f, :password, "Password", class: "form-control" %>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
+  <%= bootstrap_submit "Submit" %>
 <% end %>
