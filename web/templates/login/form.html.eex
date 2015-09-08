@@ -4,5 +4,5 @@
 
   <%= bootstrap_password_input f, :password, "Password: "%>
 
-  <%= bootstrap_submit "Submit", class: "btn btn-primary" %>
+  <%= bootstrap_submit "Submit" %>
 <% end %>

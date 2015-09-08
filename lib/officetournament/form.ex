@@ -25,6 +25,10 @@ defmodule Officetournament.Form do
 
   def bootstrap_submit(field, opts \\ []) do
     Phoenix.HTML.Tag.content_tag :div, class: "form-group" do
+      opts =
+        opts
+        |> Keyword.put_new(:class, "btn btn-primary")
+
       Form.submit(field, opts)
     end
   end
