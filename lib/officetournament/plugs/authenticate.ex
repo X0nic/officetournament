@@ -29,6 +29,13 @@ defmodule Officetournament.Plugs.Authenticate do
     end
   end
 
+  defp fetch_user(conn) do
+    case get_session(conn, :current_user) do
+      {:ok, user} -> user
+      _           -> nil
+    end
+  end
+
   defp auth_error!(conn) do
     conn
     |> put_flash(:error, "You need to be signed in to view this page")
