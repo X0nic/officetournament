@@ -17,7 +17,15 @@ defmodule Officetournament.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    changeset = User.changeset(%User{}, user_params)
+    hash_password = Comeonin.Bcrypt.hashpwsalt(user_params["password"])
+
+    user = %{
+      name: user_params["name"],
+      email: user_params["email"],
+      username: user_params["username"],
+      password: hash_password
+      }
+    changeset = User.changeset(%User{}, user)
 
     if changeset.valid? do
       Repo.insert(changeset)
@@ -42,8 +50,10 @@ defmodule Officetournament.UserController do
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do
+    hash_password = Comeonin.Bcrypt.hashpwsalt(user_params["password"])
+
     user = Repo.get(User, id)
-    changeset = User.changeset(user, user_params)
+    changeset = User.changeset(user, %{ user_params | "password" => hash_password} )
 
     case Repo.update(changeset) do
       {:ok, user} ->

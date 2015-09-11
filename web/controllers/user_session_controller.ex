@@ -48,12 +48,14 @@ defmodule Officetournament.UserSessionController do
   end
 
   defp find_user_and_pass(username, password) do
+    Logger.debug "Found username: #{username} password: #{password}"
+
     user = Repo.one(from u in User,
                     where: u.username == ^username,
                     select: u)
 
     if !is_nil(user) do
-      Logger.debug "Testing #{user.username}:#{user.password}" 
+      Logger.debug "Testing #{user.username}:#{user.password}"
     end
 
     if check_password(user, password) do
@@ -68,6 +70,8 @@ defmodule Officetournament.UserSessionController do
   end
 
   defp check_password(user, password) do
-    user.password == password
+    Logger.debug "Checking password: #{password}"
+
+    Comeonin.Bcrypt.checkpw(password, user.password)
   end
 end
