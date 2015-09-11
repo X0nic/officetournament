@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @conn, login_path(@conn, :index), [name: :login], fn f -> %>
+<%= bootstrap_form_for @conn, user_session_path(@conn, :index), [name: :login], fn f -> %>
 
   <%= bootstrap_text_input f, :username, "Username: " %>
 

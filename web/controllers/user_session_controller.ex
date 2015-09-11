@@ -1,4 +1,4 @@
-defmodule Officetournament.LoginController do
+defmodule Officetournament.UserSessionController do
   use Officetournament.Web, :controller
 
   alias Officetournament.Login
@@ -22,11 +22,11 @@ defmodule Officetournament.LoginController do
       conn
       |> put_flash(:info, "Welcome #{user.username}! I like your password #{password}")
       |> put_session(:username, username)
-      |> redirect(to: login_path(conn, :index))
+      |> redirect(to: user_session_path(conn, :index))
     else
       conn
       |> put_flash(:error, "Username not found.")
-      |> redirect(to: login_path(conn, :index))
+      |> redirect(to: user_session_path(conn, :index))
     end
   end
 

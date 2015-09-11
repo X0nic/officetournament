@@ -17,9 +17,9 @@ defmodule Officetournament.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", HomeController, :index
-    get "/login/", LoginController, :index
-    post "/login/", LoginController, :login
-    get "/logout/", LoginController, :logout
+    get "/login/", UserSessionController, :index
+    post "/login/", UserSessionController, :login
+    get "/logout/", UserSessionController, :logout
     resources "/users", UserController
   end
 

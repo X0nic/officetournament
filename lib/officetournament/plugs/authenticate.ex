@@ -37,8 +37,7 @@ defmodule Officetournament.Plugs.Authenticate do
   defp auth_error!(conn) do
     conn
     |> put_flash(:error, "You need to be signed in to view this page")
-    # |> redirect(to: RouteHelpers.session_path(conn, :new))
-    |> redirect(to: RouteHelpers.login_path(conn, :index))
+    |> redirect(to: RouteHelpers.user_session_path(conn, :index))
     |> halt
   end
 end
