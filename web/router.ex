@@ -1,6 +1,5 @@
 defmodule Officetournament.Router do
   use Officetournament.Web, :router
-  alias Officetournament.Repo
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -36,13 +35,6 @@ defmodule Officetournament.Router do
   # `@current_user`.
   defp assign_current_user(conn, _) do
     user_id = get_session(conn, :current_user_id)
-    assign(conn, :current_user, find_by_id(User, user_id))
-  end
-
-  defp find_by_id(User, user_id) do
-    case user_id do
-      nil -> nil
-      _ -> Repo.get(User, user_id)
-    end
+    assign(conn, :current_user, Officetournament.UserSessionController.find_by_id(user_id))
   end
 end

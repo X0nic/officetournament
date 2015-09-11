@@ -9,30 +9,24 @@ defmodule Officetournament.Plugs.Authenticate do
 
   def init(opts), do: opts
 
-  def call(conn, _opts) do
-    if user = get_user(conn) do
-      assign(conn, :current_user, user)
-    else
-      auth_error!(conn)
+  def call(conn, _default) do
+    case current_user(conn) do
+      nil -> auth_error!(conn)
+      _   -> conn
     end
   end
+
+  @doc "Returns the current user."
+  def current_user(conn), do: conn.assigns[:current_user]
+
+  @doc "Returns true if a user is logged in."
+  def logged_in?(conn), do: !is_nil current_user(conn)
 
   def get_user(conn) do
     case conn.assigns[:current_user] do
       nil      -> fetch_user(conn)
       user     -> user
     end
-  end
-
-  defp fetch_user(conn) do
-    case get_session(conn, :current_user) do
-      {:ok, user} -> user
-      _           -> nil
-    end
-  end
-
-  defp find_user(id) do
-    Repo.get(User, id)
   end
 
   defp auth_error!(conn) do

@@ -22,6 +22,7 @@ defmodule Officetournament.UserSessionController do
       conn
       |> put_flash(:info, "Welcome #{user.username}! I like your password #{password}")
       |> put_session(:username, username)
+      |> put_session(:current_user_id, user.id)
       |> redirect(to: user_session_path(conn, :index))
     else
       conn
@@ -39,8 +40,15 @@ defmodule Officetournament.UserSessionController do
 
   def logout(conn, params) do
     conn
-    |> delete_session(:username)
+    |> clear_session
     |> redirect(to: home_path(conn, :index))
+  end
+
+  def find_by_id(user_id) do
+    case user_id do
+      nil -> nil
+      _ -> Repo.get(User, user_id)
+    end
   end
 
   defp find_user(conn, params) do
