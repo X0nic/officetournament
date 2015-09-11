@@ -1,3 +1,4 @@
+# Mostly taken from http://stackoverflow.com/a/31983168/3453
 defmodule Officetournament.Plugs.Authenticate do
   import Plug.Conn
   alias Officetournament.Router.Helpers, as: RouteHelpers
