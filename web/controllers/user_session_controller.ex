@@ -19,7 +19,7 @@ defmodule Officetournament.UserSessionController do
       conn
       |> put_flash(:info, "Welcome #{user.username}! I like your password #{password}")
       |> put_session(:current_user_id, user.id)
-      |> redirect(to: user_session_path(conn, :index))
+      |> redirect(to: home_path(conn, :index))
     else
       conn
       |> put_flash(:error, "Username and password not found.")
