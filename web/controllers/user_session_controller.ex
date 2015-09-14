@@ -37,6 +37,7 @@ defmodule Officetournament.UserSessionController do
   def logout(conn, params) do
     conn
     |> clear_session
+    |> put_flash(:info, "You have been logged out.")
     |> redirect(to: home_path(conn, :index))
   end
 
