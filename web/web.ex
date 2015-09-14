@@ -30,6 +30,8 @@ defmodule Officetournament.Web do
       import Ecto.Model
       import Ecto.Query, only: [from: 1, from: 2]
 
+      alias Officetournament.Plugs.Authenticate
+
       import Officetournament.Router.Helpers
     end
   end
@@ -48,6 +50,10 @@ defmodule Officetournament.Web do
       import Officetournament.Form
 
       import Officetournament.Router.Helpers
+
+      alias Officetournament.Plugs.Authenticate
+
+      def logged_in?(conn), do: Authenticate.logged_in?(conn)
 
       def active(option, conn) do
         # Logger.debug "We are at path #{conn.request_path} for option #{option}"

@@ -1,3 +1,7 @@
 <h2>Welcome home</h2>
 
-<p><%= @username %></p>
+<%= if logged_in?(@conn) do %>
+<p><%= @current_user.name %></p>
+<%= else %>
+  <p>Not logged in</p>
+<%= end %>

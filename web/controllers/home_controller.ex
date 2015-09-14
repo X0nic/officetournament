@@ -7,8 +7,6 @@ defmodule Officetournament.HomeController do
 
   def index(conn, _params) do
     conn
-    |> assign(:username, get_session(conn, :username))
-    |> assign(:message, "this is a message")
     |> render("index.html")
   end
 end
