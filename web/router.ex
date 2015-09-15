@@ -24,6 +24,13 @@ defmodule Officetournament.Router do
     resources "/users", UserController
   end
 
+  scope "/auth", Officetournament do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :index
+    get "/:provider/callback", AuthController, :callback
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Officetournament do
   #   pipe_through :api
