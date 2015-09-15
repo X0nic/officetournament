@@ -18,7 +18,7 @@ defmodule Officetournament.Mixfile do
   def application do
     [mod: {Officetournament, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :comeonin]]
+                    :phoenix_ecto, :postgrex, :comeonin, :oauth2]]
   end
 
   # Specifies which paths to compile per environment
@@ -35,7 +35,8 @@ defmodule Officetournament.Mixfile do
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 1.1"}
+     {:comeonin, "~> 1.1"},
+     {:oauth2, "~> 0.3"}
     ]
   end
 end
