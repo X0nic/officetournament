@@ -6,11 +6,12 @@ defmodule Officetournament.User do
     field :email, :string
     field :username, :string
     field :password, :string
+    field :provider, :string
 
     timestamps
   end
 
-  @required_fields ~w(name email username)
+  @required_fields ~w(name email username provider)
   @optional_fields ~w(password)
 
   @doc """

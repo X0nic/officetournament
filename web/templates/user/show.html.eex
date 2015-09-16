@@ -17,6 +17,11 @@
     <%= @user.username %>
   </li>
 
+  <li>
+    <strong>Provider:</strong>
+    <%= @user.provider %>
+  </li>
+
 </ul>
 
 <%= link "Back", to: user_path(@conn, :index) %>

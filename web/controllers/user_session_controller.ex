@@ -66,6 +66,22 @@ defmodule Officetournament.UserSessionController do
     end
   end
 
+  def create_from_auth_params(user_auth_params) do
+    %User{
+      name: user_auth_params["name"],
+      username: user_auth_params["login"],
+      email: user_auth_params["email"],
+      provider: "github"
+    } |> Repo.insert!
+  end
+
+  def find_by_user_name(username, provider \\ "github") do
+    query = from u in User,
+            where: u.username == ^username and u.provider == ^provider,
+            select: u
+    Repo.one(query)
+  end
+
   defp check_password(nil, password) do
     nil
   end

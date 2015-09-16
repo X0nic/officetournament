@@ -18,5 +18,7 @@
 
   <%= bootstrap_text_input f, :password, "Password", class: "form-control" %>
 
+  <%= bootstrap_text_input f, :provider, "OAuth Provider", class: "form-control" %>
+
   <%= bootstrap_submit "Submit" %>
 <% end %>
