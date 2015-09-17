@@ -1,12 +1,13 @@
 <h2>Welcome home</h2>
 
 <%= if logged_in?(@conn) do %>
-<p><%= @current_user.name %></p>
+  <p><%= @current_user.name %></p>
+
+ <a href="<%= user_session_path @conn, :logout %>">Logout</a>
 <%= else %>
-  <p>Not logged in</p>
+  <a class="btn btn-primary btn-lg" href="<%= auth_path @conn, :index, "github" %>">
+    <i class="fa fa-github"></i>
+    Sign in with GitHub
+  </a>
 <%= end %>
 
-<a class="btn btn-primary btn-lg" href="<%= auth_path @conn, :index, "github" %>">
-  <i class="fa fa-github"></i>
-  Sign in with GitHub
-</a>
