@@ -1,3 +1,14 @@
 <h2>Please Login</h2>
 
-<%= render "form.html", conn: @conn %>
+<%= if logged_in?(@conn) do %>
+  <p><%= @current_user.name %></p>
+
+ <a href="<%= user_session_path @conn, :logout %>">Logout</a>
+<%= else %>
+  <%= render "form.html", conn: @conn %>
+
+  <a class="btn btn-primary btn-lg" href="<%= auth_path @conn, :index, "github" %>">
+    <i class="fa fa-github"></i>
+    Sign in with GitHub
+  </a>
+<%= end %>
