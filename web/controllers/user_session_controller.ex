@@ -9,6 +9,7 @@ defmodule Officetournament.UserSessionController do
 
   def index(conn, _params) do
     conn
+    |> put_layout("login.html")
     |> render("index.html")
   end
 
