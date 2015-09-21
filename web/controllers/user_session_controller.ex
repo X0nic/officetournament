@@ -4,13 +4,19 @@ defmodule Officetournament.UserSessionController do
 
   alias Officetournament.Login
   alias Officetournament.User
+  # plug Officetournament.Plugs.Authenticate
 
   plug :scrub_params, "login" when action in [:create, :update]
 
   def index(conn, _params) do
-    conn
-    |> put_layout("login.html")
-    |> render("index.html")
+    if Authenticate.logged_in?(conn) do
+      conn
+      |> redirect(to: home_path(conn, :index))
+    else
+      conn
+      |> put_layout("login.html")
+      |> render("index.html")
+    end
   end
 
   def login(conn, %{"login" => %{"username" => username, "password" => password}}) do
