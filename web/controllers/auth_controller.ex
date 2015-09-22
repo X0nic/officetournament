@@ -58,13 +58,13 @@ defmodule Officetournament.AuthController do
   end
 
   defp authorize_url!("github"), do: GitHub.authorize_url!
-  #defp authorize_url!("google"), do: Google.authorize_url!
+  defp authorize_url!("google"), do: Google.authorize_url!
   defp authorize_url!(_), do: raise "No matching provider available"
 
   defp get_token!("github", code), do: GitHub.get_token!(code: code)
-  #defp get_token!("google", code), do: Google.get_token!(code: code)
+  defp get_token!("google", code), do: Google.get_token!(code: code)
   defp get_token!(_, _), do: raise "No matching provider available"
 
   defp get_user!("github", token), do: OAuth2.AccessToken.get!(token, "/user")
-  #defp get_user!("google", token), do: OAuth2.AccessToken.get!(token, "/user")
+  defp get_user!("google", token), do: OAuth2.AccessToken.get!(token, "/user")
 end
