@@ -17,7 +17,7 @@ defmodule Google do
       site: "https://accounts.google.com",
       authorize_url: "/o/oauth2/auth",
       token_url: "/o/oauth2/token",
-      scope: "email,profile"
+      params: %{scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"}
     ])
   end
 
