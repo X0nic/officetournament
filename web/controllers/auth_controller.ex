@@ -20,9 +20,15 @@ defmodule Officetournament.AuthController do
     # Exchange an auth code for an access token
     token = get_token!(provider, code)
 
+    # Logger.debug token
+    %{access_token: access_token, other_params: %{"id_token" => id_token} } = token
+    Logger.debug access_token
+    # Logger.debug other_params
+    Logger.debug id_token
+
     # Request the user's data with the access token
-    user_params = get_user!(provider, token)
-    # Logger.debug user_params
+    user_params = get_user!(provider, %{:access_token => access_token, :token_type => "Bearer", :id_token => id_token })
+    Logger.debug user_params
 
     sign_in_via_auth conn, user_params
     #
@@ -41,6 +47,8 @@ defmodule Officetournament.AuthController do
   end
 
   def find_or_create_user(user_auth_params) do
+    Logger.debug user_auth_params
+
     %{"login" => user_name, "avatar_url" => url, "email" => email} = user_auth_params
     # try do
     #   ElixirStatus.Avatar.load! user_name, url
@@ -66,5 +74,5 @@ defmodule Officetournament.AuthController do
   defp get_token!(_, _), do: raise "No matching provider available"
 
   defp get_user!("github", token), do: OAuth2.AccessToken.get!(token, "/user")
-  defp get_user!("google", token), do: OAuth2.AccessToken.get!(token, "/user")
+  defp get_user!("google", token), do: OAuth2.AccessToken.get!(token, "https://www.googleapis.com/oauth2/v3/tokeninfo")
 end
