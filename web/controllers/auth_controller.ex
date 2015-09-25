@@ -21,16 +21,17 @@ defmodule Officetournament.AuthController do
     token = get_token!(provider, code)
 
     # Logger.debug token
-    %{access_token: access_token, other_params: %{"id_token" => id_token} } = token
-    Logger.debug access_token
+    # %{access_token: access_token, other_params: %{"id_token" => id_token} } = token
+    # Logger.debug access_token
     # Logger.debug other_params
-    Logger.debug id_token
+    # Logger.debug id_token
 
     # Request the user's data with the access token
-    user_params = get_user!(provider, %{:access_token => access_token, :token_type => "Bearer", :id_token => id_token })
-    Logger.debug user_params
+    # user_params = get_user!(provider, %{:access_token => access_token, :token_type => "Bearer", :id_token => id_token })
+    user_params = get_user!(provider, token)
+    # Logger.debug user_params
 
-    sign_in_via_auth conn, user_params
+    sign_in_via_auth conn, provider, user_params
     #
     # conn
     # # |> put_session(:current_user_id, user.id)
@@ -38,29 +39,30 @@ defmodule Officetournament.AuthController do
     # |> redirect(to: "/")
   end
 
-  defp sign_in_via_auth(conn, user_auth_params) do
-    current_user = find_or_create_user(user_auth_params)
+  defp sign_in_via_auth(conn, provider, user_auth_params) do
+    current_user = find_or_create_user(provider, user_auth_params)
 
     conn
       |> put_session(:current_user_id, current_user.id)
       |> redirect(to: "/")
   end
 
-  def find_or_create_user(user_auth_params) do
-    Logger.debug user_auth_params
+  def find_or_create_user(provider, user_auth_params) do
+    # Logger.debug user_auth_params
 
-    %{"login" => user_name, "avatar_url" => url, "email" => email} = user_auth_params
+    # %{"login" => user_name, "avatar_url" => url, "email" => email} = user_auth_params
+    # %{"email" => email} = user_auth_params
     # try do
     #   ElixirStatus.Avatar.load! user_name, url
     # rescue
     #   e -> IO.inspect {"error", e}
     # end
-    Logger.debug "user_name: #{user_name}"
-    Logger.debug "url: #{url}"
-    Logger.debug "email: #{email}"
+    # Logger.debug "user_name: #{user_name}"
+    # Logger.debug "url: #{url}"
+    # Logger.debug "email: #{email}"
 
-    case Officetournament.UserSessionController.find_by_user_name(user_name) do
-      nil -> Officetournament.UserSessionController.create_from_auth_params(user_auth_params)
+    case Officetournament.UserSessionController.find_by_user_params(provider, user_auth_params) do
+      nil -> Officetournament.UserSessionController.create_from_auth_params(provider, user_auth_params)
       user -> user
     end
   end
@@ -74,5 +76,8 @@ defmodule Officetournament.AuthController do
   defp get_token!(_, _), do: raise "No matching provider available"
 
   defp get_user!("github", token), do: OAuth2.AccessToken.get!(token, "/user")
-  defp get_user!("google", token), do: OAuth2.AccessToken.get!(token, "https://www.googleapis.com/oauth2/v3/tokeninfo")
+  defp get_user!("google", token) do
+    %{access_token: access_token, other_params: %{"id_token" => id_token} } = token
+    OAuth2.AccessToken.get!(token, "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=#{access_token}")
+  end
 end

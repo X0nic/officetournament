@@ -73,7 +73,7 @@ defmodule Officetournament.UserSessionController do
     end
   end
 
-  def create_from_auth_params(user_auth_params) do
+  def create_from_auth_params("github", user_auth_params) do
     %User{
       name: user_auth_params["name"],
       username: user_auth_params["login"],
@@ -82,9 +82,25 @@ defmodule Officetournament.UserSessionController do
     } |> Repo.insert!
   end
 
-  def find_by_user_name(username, provider \\ "github") do
+  def create_from_auth_params("google", user_auth_params) do
+    %User{
+      email: user_auth_params["email"],
+      provider: "google"
+    } |> Repo.insert!
+  end
+
+  def find_by_user_params("github", user_params) do
+    %{"login" => username} = user_params
     query = from u in User,
-            where: u.username == ^username and u.provider == ^provider,
+            where: u.username == ^username and u.provider == ^"github",
+            select: u
+    Repo.one(query)
+  end
+
+  def find_by_user_params("google", user_params) do
+    %{"email" => email} = user_params
+    query = from u in User,
+            where: u.email == ^email and u.provider == ^"google",
             select: u
     Repo.one(query)
   end
