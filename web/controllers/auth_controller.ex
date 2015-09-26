@@ -20,23 +20,10 @@ defmodule Officetournament.AuthController do
     # Exchange an auth code for an access token
     token = get_token!(provider, code)
 
-    # Logger.debug token
-    # %{access_token: access_token, other_params: %{"id_token" => id_token} } = token
-    # Logger.debug access_token
-    # Logger.debug other_params
-    # Logger.debug id_token
-
     # Request the user's data with the access token
-    # user_params = get_user!(provider, %{:access_token => access_token, :token_type => "Bearer", :id_token => id_token })
     user_params = get_user!(provider, token)
-    # Logger.debug user_params
 
     sign_in_via_auth conn, provider, user_params
-    #
-    # conn
-    # # |> put_session(:current_user_id, user.id)
-    # |> put_session(:access_token, token.access_token)
-    # |> redirect(to: "/")
   end
 
   defp sign_in_via_auth(conn, provider, user_auth_params) do
@@ -48,18 +35,11 @@ defmodule Officetournament.AuthController do
   end
 
   def find_or_create_user(provider, user_auth_params) do
-    # Logger.debug user_auth_params
-
-    # %{"login" => user_name, "avatar_url" => url, "email" => email} = user_auth_params
-    # %{"email" => email} = user_auth_params
     # try do
     #   ElixirStatus.Avatar.load! user_name, url
     # rescue
     #   e -> IO.inspect {"error", e}
     # end
-    # Logger.debug "user_name: #{user_name}"
-    # Logger.debug "url: #{url}"
-    # Logger.debug "email: #{email}"
 
     case Officetournament.UserSessionController.find_by_user_params(provider, user_auth_params) do
       nil -> Officetournament.UserSessionController.create_from_auth_params(provider, user_auth_params)
