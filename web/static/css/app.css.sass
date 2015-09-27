@@ -1,0 +1,916 @@
+// ==========================================================================
+// Normalize and Resets
+// ==========================================================================
+
+@import normalize
+@import reset
+// @import ion-icons/ionicons
+
+
+
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+$black: #000000
+$white: #ffffff
+$slate-grey: #3c444b
+$sea-green: #169e83
+$gold: #FFD700
+$silver: #c0c0c0
+$bronze: #cd7f32
+$pong-blue: #13326B
+$pong-red: #c0392b
+$twitter-blue: #55acee
+$google-red: #DD4B39
+
+// ==========================================================================
+// Body Styles
+// ==========================================================================
+
+body
+  font-family: 'Oswald', sans-serif
+  background: $slate-grey
+
+
+
+
+// ==========================================================================
+// Clearfix Placeholder Class
+// ==========================================================================
+
+%cf
+  &:after
+    content: ""
+    display: table
+    clear: both
+
+
+
+
+// ==========================================================================
+// Wrappers
+// ==========================================================================
+
+.wrapper
+  @extend %cf
+  width: 1200px
+  margin: 0 auto
+
+
+
+// ==========================================================================
+// Section Headings
+// ==========================================================================
+
+h1
+  font-family: 'Open Sans', sans-serif
+  font-size: 36px
+  font-weight: 300
+  color: $white
+  text-align: center
+  margin-bottom: 40px
+
+h2
+  font-size: 24px
+  font-weight: 300
+  color: #f5f5f5
+  text-shadow: 0 2px 0 rgba($black, 0.5)
+  text-transform: uppercase
+  letter-spacing: 2px
+  margin-bottom: 30px
+
+
+
+
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+.btn
+  display: inline-block
+  color: $white
+  text-transform: uppercase
+  letter-spacing: 1px
+  padding: 10px
+  border-radius: 3px
+  background: $sea-green
+
+  &:hover
+    box-shadow: 0 1px 0 rgba($black, 0.1)
+    background: darken($sea-green, 5%)
+
+
+  .icon
+    margin-left: 5px
+
+    &:before
+      font-size: 18px
+
+  .icon--left
+    margin-left: 0
+    margin-right: 5px
+
+
+.btn--transparent
+  letter-spacing: normal
+  text-transform: capitalize
+  background: rgba($black, 0.2)
+
+
+.btn--gold
+  background: $gold
+
+
+.btn--large
+  font-size: 21px
+  padding: 20px
+
+
+.btn--twitter
+  font-family: 'Open Sans', sans-serif
+  text-transform: none
+  letter-spacing: normal
+  background: $twitter-blue
+
+.btn--google
+  font-family: 'Open Sans', sans-serif
+  text-transform: none
+  letter-spacing: normal
+  background: $google-red
+
+  &:hover
+    background: darken($twitter-blue, 5%)
+
+// ==========================================================================
+// Well
+// ==========================================================================
+
+.well,
+%well
+  padding: 30px
+  border-radius: 5px
+  border-top: 1px solid rgba($black, 0.1)
+  border-bottom: 1px solid rgba($white, 0.1)
+  background: rgba($black, 0.1)
+
+
+// ==========================================================================
+// Header
+// ==========================================================================
+
+.header
+  @extend %cf
+  position: relative
+  height: 136px
+  padding-top: 50px
+  margin-bottom: 40px
+
+  .logo
+    display: block
+    position: absolute
+    top: 20px
+    left: 50%
+    margin-left: -89px
+    width: 178px
+
+  ul
+    float: left
+
+    > li
+      float: left
+      margin-right: 10px
+
+      &:last-child
+        margin-right: 0
+
+.member
+  float: right
+  font-family: 'Open Sans', sans-serif
+  font-weight: 300
+  color: $white
+
+  .btn
+    margin-left: 10px
+
+
+
+// ==========================================================================
+// Ladder
+// ==========================================================================
+
+.ladder
+  float: left
+  width: 812px
+  margin-bottom: 30px
+
+
+.player
+  @extend %cf
+  position: relative
+  width: 100%
+  border-bottom: 1px solid rgba($white, 0.1)
+
+  &:first-of-type
+    border-top: 1px solid rgba($white, 0.1)
+
+
+.player__image
+  position: relative
+  float: left
+  width: 180px
+  height: 180px
+  background: rgba($black, 0.5)
+
+
+.rank
+  position: absolute
+  top: 0
+  left: 0
+  font-size: 24px
+  width: 50px
+  height: 50px
+  color: $white
+  text-align: center
+  line-height: 50px
+  background: rgba($black, 0.85)
+
+  &.gold
+    left: -4px
+    border-left: 4px solid $gold
+
+  &.silver
+    left: -4px
+    border-left: 4px solid $silver
+
+  &.bronze
+    left: -4px
+    border-left: 4px solid $bronze
+
+
+.player__info
+  float: left
+  width: 574px
+  padding: 20px 0 0 30px
+
+.player__name
+  display: inline-block
+  font-size: 30px
+  font-weight: 400
+  color: $white
+  text-transform: uppercase
+  letter-spacing: 2px
+  margin-bottom: 20px
+  margin-left: -10px
+  padding: 10px
+
+  &:hover
+    background: rgba($black, 0.15)
+
+
+.stat-table
+  font-weight: 300
+  color: #cccccc
+
+  th,
+  td
+    padding: 10px 15px
+    text-align: center
+    letter-spacing: 1px
+    border: 1px solid #4f575d
+
+  th
+    text-transform: uppercase
+    border-top: none
+
+  td
+    border-bottom: none
+
+
+.highcharts
+  position: absolute
+  top: 10px
+  right: 0
+
+.skill-history-label
+  position: absolute
+  right: 0
+  bottom: 20px
+  width: 280px
+
+.skill-history-label,
+.no-data-label
+  font-weight: 300
+  color: #cccccc
+  text-align: center
+  text-transform: uppercase
+  letter-spacing: 1px
+
+.skill-history-label-large
+  right: 0
+  bottom: 20px
+  width: 280px
+
+.no-data-label
+  display: block
+
+
+
+// ==========================================================================
+// Recent Games
+// ==========================================================================
+
+.streak-leader
+  display: block
+  font-weight: 300
+  color: #cccccc
+  text-align: left
+  text-transform: uppercase
+  letter-spacing: 1px
+  padding-bottom: 20px
+  margin-top: -20px
+  margin-bottom: 10px
+
+
+.recent
+  float: right
+  width: 348px
+
+.recent__games
+  @extend %well
+  width: 125%
+
+.game
+  @extend %cf
+  position: relative
+  margin-bottom: 10px
+  padding-bottom: 10px
+  border-bottom: 1px solid rgba($white, 0.1)
+
+  &:last-of-type
+    margin-bottom: 0
+    padding-bottom: 0
+    border-bottom: none
+
+    &:before
+      margin-top: -1px
+
+  //The dash between scores
+  &:before
+    content: ""
+    display: block
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -6px
+    margin-left: -10px
+    width: 20px
+    height: 2px
+    background: rgba($white, 0.5)
+
+
+.game__player--left
+  position: relative
+  float: left
+
+  .game__player-img
+    float: left
+    margin-right: 20px
+
+
+.game__player--right
+  position: relative
+  float: right
+
+  .game__player-img
+    float: right
+    margin-left: 20px
+
+  .game__player-delta
+    left: auto
+    right: -10px
+
+
+.game__player-img
+  border-radius: 5px
+
+
+.game__player-score
+  font-size: 24px
+  font-weight: 300
+  color: $white
+  line-height: 60px
+  letter-spacing: 1px
+
+
+.game__player-delta
+  position: absolute
+  left: -10px
+  bottom: 0
+  font-size: 14px
+  font-weight: 300
+  color: $white
+  letter-spacing: 1px
+  padding: 4px
+
+  &.positive
+    background: $sea-green
+
+  &.negative
+    background: $pong-red
+
+
+
+
+// ==========================================================================
+// New Game
+// ==========================================================================
+
+.new-game,
+.new_league,
+.new_invite
+  text-align: center
+  padding: 0 100px
+  margin-bottom: 20px
+
+  .well
+    display: inline-block
+    padding: 10px
+
+
+.table
+  @extend %cf
+  position: relative
+  height: 420px
+  margin-bottom: 20px
+  border: 4px solid $white
+  box-shadow: 0 0 10px rgba($black, 0.5)
+  background: darken($sea-green, 5%)
+
+  &:before
+    content: ""
+    display: block
+    position: absolute
+    left: 0
+    right: 0
+    top: 50%
+    margin-top: -4px
+    height: 2px
+    background: $white
+
+
+.table__net
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 50%
+  margin-left: -2px
+  width: 4px
+  box-shadow: 0 0 5px rgba($black, 0.3)
+  background: darken($white, 10%)
+
+  &:before,
+  &:after
+    content: ""
+    display: block
+    position: absolute
+    width: 4px
+    height: 20px
+
+  &:before
+    top: -20px
+    height: 20px
+    border-top-left-radius: 2px
+    border-top-right-radius: 2px
+    background: lighten($black, 10%)
+
+  &:after
+    bottom: -20px
+    height: 20px
+    border-bottom-left-radius: 2px
+    border-bottom-right-radius: 2px
+    background: lighten($black, 10%)
+
+
+.table__badge
+  position: absolute
+  top: 50%
+  left: 50%
+  margin-top: -18px
+  margin-left: -25px
+  width: 50px
+  height: 36px
+  line-height: 36px
+  color: $white
+  display: inline-block
+  letter-spacing: 1px
+  border-radius: 5px
+  background: #161616
+
+.new-podium-game__player
+  float: left
+  width: 33%
+  text-align: center
+  padding: 30px
+
+  h2
+    font-size: 30px
+    text-shadow: none
+    color: $white
+    display: inline-block
+    padding: 10px
+    background: $gold
+
+  &:nth-of-type(2)
+    h2
+      background: $silver
+
+  &:last-of-type
+    h2
+      background: $bronze
+
+.new-podium-game__player-podium
+  position: relative
+  z-index: 1
+  width: 100px
+  height: 100px
+  background-size: 100px 100px
+  background-repeat: no-repeat
+  margin-bottom: 120px
+
+  &.first-place
+    .new-podium-game__player-image
+      background: darken($gold, 5%)
+
+      &:hover
+        background: darken($gold, 8%)
+
+  &.second-place
+    .new-podium-game__player-image
+      background: darken($silver, 5%)
+
+      &:hover
+        background: darken($silver, 8%)
+
+  &.third-place
+    .new-podium-game__player-image
+      background: darken($bronze, 5%)
+
+      &:hover
+        background: darken($bronze, 10%)
+
+
+.new-podium-game__player-image
+  position: absolute
+  top: 12px
+  right: 12px
+  left: 63px
+  width: 140px
+  height: 140px
+  box-shadow: inset 0 0 3px rgba($black, 0.15)
+  border-radius: 100%
+  cursor: pointer
+
+  .icon
+    font-size: 96px
+    line-height: 120px
+    color: $white
+
+  img
+    border-radius: 100%
+
+.new-game__player
+  float: left
+  width: 50%
+  text-align: center
+  padding: 30px
+
+  h2
+    font-size: 30px
+    text-shadow: none
+    color: $white
+    display: inline-block
+    padding: 10px
+    background: $pong-blue
+
+  &:last-of-type
+
+    h2
+      background: $pong-red
+
+.new-game__player-paddle.player-one
+  right: 130px
+
+.new-game__player-paddle.player-two
+  right: -220px
+  top: 75px
+  float: left
+
+.new-game__player-paddle
+  position: relative
+  z-index: 1
+  width: 200px
+  height: 200px
+  margin: 0 auto
+  background-size: 200px 200px
+  background-repeat: no-repeat
+
+  &.player-home, &.player-one-home, &.player-two-home
+    background-image: image-url("paddle-blue.svg")
+
+    .new-game__player-image
+      background: darken($pong-blue, 5%)
+
+      &:hover
+        background: darken($pong-blue, 8%)
+
+
+  &.player-away
+    background-image: image-url("paddle-red.svg")
+
+    .new-game__player-image
+      background: darken($pong-red, 5%)
+
+      &:hover
+        background: darken($pong-red, 10%)
+
+
+.new-game__player-image
+  position: absolute
+  top: 12px
+  right: 12px
+  width: 140px
+  height: 140px
+  box-shadow: inset 0 0 3px rgba($black, 0.15)
+  border-radius: 100%
+  cursor: pointer
+
+  .icon
+    font-size: 96px
+    line-height: 120px
+    color: $white
+
+  img
+    border-radius: 100%
+
+
+.new-game__label
+  display: block
+  font-size: 24px
+  font-weight: 300
+  margin-top: -12px
+  margin-bottom: 10px
+  color: $white
+
+  abbr
+    display: none
+
+.new-game__input
+  width: 80px
+  height: 50px
+  font-size: 24px
+  color: #161616
+  text-align: center
+  border-radius: 5px
+  background: rgba($white, 0.8)
+
+  &:focus
+    background: $white
+
+
+.error_explanation
+  font-family: 'Open Sans', sans-serif
+  font-weight: 300
+  color: $white
+  padding: 20px
+  margin-bottom: 20px
+  border-radius: 5px
+  border: 1px solid $pong-red
+  background: rgba($black, 0.1)
+
+  h2
+    font-family: 'Oswald', sans-serif
+    text-transform: uppercase
+    text-shadow: none
+    margin-bottom: 20px
+
+  li
+    margin-bottom: 6px
+
+    &:last-child
+      margin-bottom: 0
+
+
+.field_with_errors
+
+  .error
+    display: none
+
+  .new-game__input
+    border: 2px solid $pong-red
+
+
+
+
+// ==========================================================================
+// New Game Modal
+// ==========================================================================
+
+.modal
+  display: none
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 500
+  background: rgba($slate-grey, 0.95)
+
+
+.modal__wrapper
+  display: table
+  width: 100%
+  height: 100%
+
+
+.modal__align
+  display: table-cell
+  vertical-align: middle
+
+
+.modal__close
+  position: absolute
+  top: 20px
+  right: 20px
+  width: 48px
+  height: 48px
+  font-size: 36px
+  color: #cccccc
+  text-align: center
+  cursor: pointer
+  border-radius: 100%
+
+  &:hover
+    background: rgba($black, 0.1)
+
+  &:before
+    line-height: 48px
+
+
+.modal__player-list
+  @extend %cf
+  width: 1200px
+  max-height: 600px
+  margin-left: auto
+  margin-right: auto
+  overflow-y: scroll
+
+  > li
+    float: left
+    width: 25%
+    margin-bottom: 20px
+    text-align: center
+
+
+.modal__player
+  display: inline-block
+  padding: 15px
+  border-radius: 5px
+  cursor: pointer
+
+  &:hover
+    background: rgba($black, 0.1)
+
+
+.modal__player-image
+  display: inline-block
+  width: 90px
+  height: 90px
+  margin-bottom: 10px
+  text-align: center
+  border-radius: 100%
+
+
+.modal__player-name
+  font-size: 18px
+  color: $white
+  font-weight: 400
+  text-transform: uppercase
+  letter-spacing: 1px
+
+
+
+// ==========================================================================
+// Splash Page
+// ==========================================================================
+
+.logo
+  display: inline-block
+  margin-bottom: 20px
+
+.splash
+  height: 300px
+  height: 570px
+  border-bottom: 4px solid $sea-green
+  background: image-url("wood-tile-02.jpg")
+
+
+.product
+  padding-top: 40px
+
+
+.product__desc
+  float: left
+  width: 348px
+  text-align: center
+
+  h2
+    font-size: 48px
+    text-shadow: none
+    color: $white
+    font-weight: 400
+    line-height: 1.4
+    text-shadow: 0 1px 2px rgba($black, 0.5)
+    padding: 10px 0
+    border-top: 4px solid $sea-green
+    border-bottom: 4px solid $sea-green
+
+  .well
+    display: inline-block
+    padding: 10px
+    border-top: 1px solid rgba($black, 0.2)
+    border-bottom: 1px solid rgba($white, 0.6)
+    background: rgba($black, 0.15)
+
+
+.screenshot
+  float: right
+  width: 812px
+  height: 526px
+  background: image-url("office-ladder-screenshot.png") no-repeat
+
+.footer
+  position: relative
+  text-align: center
+  padding-top: 30px
+  margin-bottom: 40px
+
+  h4
+    font-family: 'Open Sans', sans-serif
+    font-weight: 300
+    color: darken($white, 40%)
+    margin-bottom: 10px
+
+
+.mitre-logo
+  display: inline-block
+
+.rails-logo
+  position: absolute
+  top: 30px
+  right: 40px
+  opacity: 0.5
+
+
+
+
+// ==========================================================================
+// New League
+// ==========================================================================
+
+.league_name
+  margin-bottom: 20px
+
+  label
+    display: none
+
+  input
+    width: 300px
+    padding: 10px
+    border-radius: 5px
+
+// ==========================================================================
+// New Invite
+// ==========================================================================
+
+.invite_starting_skill
+  margin-bottom: 20px
+
+  label
+    display: none
+
+  input
+    width: 300px
+    padding: 10px
+    border-radius: 5px
+
+.nickname__input
+  height: 50px
+  font-size: 24px
+  color: #161616
+  text-align: center
+  border-radius: 5px
+  background: rgba($white, 0.8)
+
+  &:focus
+    background: $white

@@ -1,19 +1,24 @@
-<h2>Please Login</h2>
+<div class="splash">
+  <div class="product">
+    <div class="wrapper">
 
-<%= if logged_in?(@conn) do %>
-  <p><%= @current_user.name %></p>
+      <div class="product__desc">
+        <div class="logo">
+          <img src="office-ladder.logo.svg" />
+        </div>
 
- <a href="<%= user_session_path @conn, :logout %>">Logout</a>
-<%= else %>
-  <%= render "form.html", conn: @conn %>
+        <h2>Welcome to the underbelly of ping-pong</h2>
 
-  <a class="btn btn-primary btn-lg" href="<%= auth_path @conn, :index, "github" %>">
-    <i class="fa fa-github"></i>
-    Sign in with GitHub
-  </a>
+        <div class="well">
+          <a class="btn" href="<%= auth_path @conn, :index, "github" %>">
+            Sign in with GitHub
+          </a>
 
-  <a class="btn btn-primary btn-lg" href="<%= auth_path @conn, :index, "google" %>">
-    <i class="fa fa-google"></i>
-    Sign in with Google
-  </a>
-<%= end %>
+          <a class="btn btn--google" href="<%= auth_path @conn, :index, "google" %>">
+            Sign in with Google
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

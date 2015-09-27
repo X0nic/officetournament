@@ -1,0 +1,92 @@
+// Reset
+// In addition to normalize, we make a few of our own adjustments
+
+// ==========================================================================
+// Box Sizing
+// ==========================================================================
+
+// Set global box-sizing to border-box for responsiveness
+*
+  &,
+  &:before,
+  &:after
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+// ==========================================================================
+// Margin and Padding
+// ==========================================================================
+
+// Remove default margins and padding for most single element selectors.
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+table, th, td, caption,
+hr
+  margin: 0
+  padding: 0
+
+// Fix Firefox button height issue.
+input::-moz-focus-inner
+  border: 0
+  padding: 0
+  margin-top: -2px
+  margin-bottom: -2px
+
+input
+  border: none
+
+// ==========================================================================
+// Lists
+// ==========================================================================
+
+// Remove default list style bullets.
+ul
+  list-style: none
+
+// ==========================================================================
+// Links
+// ==========================================================================
+
+// Remove default text decoration and Firefox outline.
+a, a:active, a:visited, a:focus
+  text-decoration: none
+  outline: 0
+
+// ==========================================================================
+// Line Height
+// ==========================================================================
+
+// Remove default line heights.
+body
+  line-height: 1
+
+// ==========================================================================
+// Images
+// ==========================================================================
+
+// Responsiveness best practices for images.
+img
+  display: block
+  max-width: 100%
+  height: auto
+
+// ==========================================================================
+// Tables
+// ==========================================================================
+
+table
+
+  // Removing default bold font weight
+  th
+    font-weight: normal
+
+// ==========================================================================
+// Forms
+// ==========================================================================
+
+// Remove default focus effects, mainly by Webkit browsers
+\:focus
+  outline: none
