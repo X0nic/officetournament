@@ -1,0 +1,19 @@
+
+.splash
+
+  .product
+    .wrapper
+
+      .product__desc
+        .logo
+          %img{src: "images/office-ladder-logo.svg"}
+
+        %h2 Welcome to the underbelly of ping-pong
+
+        .well
+          -# %a.btn.btn--google{href: = auth_path @conn, :index, "google", alt: "Sign in with Google}
+          -# = link_to(auth_path(@conn, :index, "google"), "Sign in with Google")
+          = link_to(auth_path(@conn, :index, "google"), "Sign in with Google")
+            -# Sign in with Google
+
+      .screenshot
