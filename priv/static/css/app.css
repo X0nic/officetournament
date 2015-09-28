@@ -853,13 +853,13 @@ h2 {
   background-size: 200px 200px;
   background-repeat: no-repeat; }
   .new-game__player-paddle.player-home, .new-game__player-paddle.player-one-home, .new-game__player-paddle.player-two-home {
-    background-image: image-url("paddle-blue.svg"); }
+    background-image: url("../images/paddle-blue.svg"); }
     .new-game__player-paddle.player-home .new-game__player-image, .new-game__player-paddle.player-one-home .new-game__player-image, .new-game__player-paddle.player-two-home .new-game__player-image {
       background: #0f2855; }
       .new-game__player-paddle.player-home .new-game__player-image:hover, .new-game__player-paddle.player-one-home .new-game__player-image:hover, .new-game__player-paddle.player-two-home .new-game__player-image:hover {
         background: #0d2248; }
   .new-game__player-paddle.player-away {
-    background-image: image-url("paddle-red.svg"); }
+    background-image: url("../images/paddle-red.svg"); }
     .new-game__player-paddle.player-away .new-game__player-image {
       background: #ab3326; }
       .new-game__player-paddle.player-away .new-game__player-image:hover {
@@ -1004,7 +1004,7 @@ h2 {
   height: 300px;
   height: 570px;
   border-bottom: 4px solid #169e83;
-  background: image-url("wood-tile-02.jpg"); }
+  background: url("../images/wood-tile-02.jpg"); }
 
 .product {
   padding-top: 40px; }
@@ -1034,7 +1034,7 @@ h2 {
   float: right;
   width: 812px;
   height: 526px;
-  background: image-url("office-ladder-screenshot.png") no-repeat; }
+  background: url("../images/office-ladder-screenshot.png") no-repeat; }
 
 .footer {
   position: relative;

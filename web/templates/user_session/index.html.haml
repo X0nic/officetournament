@@ -11,9 +11,7 @@
         %h2 Welcome to the underbelly of ping-pong
 
         .well
-          -# %a.btn.btn--google{href: = auth_path @conn, :index, "google", alt: "Sign in with Google}
-          -# = link_to(auth_path(@conn, :index, "google"), "Sign in with Google")
-          = link_to(auth_path(@conn, :index, "google"), "Sign in with Google")
+          = link_to(auth_path(@conn, :index, "google"), "Sign in with Google", %{class: 'btn btn--google'})
             -# Sign in with Google
 
       .screenshot
