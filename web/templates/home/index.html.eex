@@ -1,4 +1,0 @@
-<h2>Welcome home</h2>
-
-<p><%= @current_user.name %></p>
-

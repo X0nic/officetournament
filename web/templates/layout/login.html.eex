@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Jobber Officeladder</title>
+  <title>Office Tournament</title>
   <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>" media="all">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
