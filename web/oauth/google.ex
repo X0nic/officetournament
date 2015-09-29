@@ -8,12 +8,12 @@ defmodule Google do
 
   # Public API
 
-  def client do
+  def client(oauth_client_params) do
     OAuth2.Client.new([
       strategy: __MODULE__,
       client_id: System.get_env("CLIENT_ID"),
       client_secret: System.get_env("CLIENT_SECRET"),
-      redirect_uri: System.get_env("REDIRECT_URI"),
+      redirect_uri: oauth_client_params.redirect_uri,
       site: "https://accounts.google.com",
       authorize_url: "/o/oauth2/auth",
       token_url: "/o/oauth2/token",
@@ -21,12 +21,12 @@ defmodule Google do
     ])
   end
 
-  def authorize_url!(params \\ []) do
-    OAuth2.Client.authorize_url!(client(), params)
+  def authorize_url!(oauth_client_params \\ %{}, params \\ []) do
+    OAuth2.Client.authorize_url!(client(oauth_client_params), params)
   end
 
-  def get_token!(params \\ [], headers \\ []) do
-    OAuth2.Client.get_token!(client(), params)
+  def get_token!(oauth_client_params \\ %{}, params \\ [], headers \\ []) do
+    OAuth2.Client.get_token!(client(oauth_client_params), params)
   end
 
   # Strategy Callbacks

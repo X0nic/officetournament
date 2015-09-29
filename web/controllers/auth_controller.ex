@@ -7,7 +7,7 @@ defmodule Officetournament.AuthController do
   based on the chosen strategy.
   """
   def index(conn, %{"provider" => provider}) do
-    redirect conn, external: authorize_url!(provider)
+    redirect conn, external: authorize_url!(conn, provider, %{ redirect_uri: auth_url(conn, :callback, provider) })
   end
 
   @doc """
@@ -18,7 +18,7 @@ defmodule Officetournament.AuthController do
   """
   def callback(conn, %{"provider" => provider, "code" => code}) do
     # Exchange an auth code for an access token
-    token = get_token!(provider, code)
+    token = get_token!(provider, %{ redirect_uri: auth_url(conn, :callback, provider) }, code)
 
     # Request the user's data with the access token
     user_params = get_user!(provider, token)
@@ -47,13 +47,13 @@ defmodule Officetournament.AuthController do
     end
   end
 
-  defp authorize_url!("github"), do: GitHub.authorize_url!
-  defp authorize_url!("google"), do: Google.authorize_url!
-  defp authorize_url!(_), do: raise "No matching provider available"
+  defp authorize_url!(conn, "github"), do: GitHub.authorize_url!
+  defp authorize_url!(conn, "google", oauth_client_params), do: Google.authorize_url!(oauth_client_params)
+  defp authorize_url!(conn, _), do: raise "No matching provider available"
 
-  defp get_token!("github", code), do: GitHub.get_token!(code: code)
-  defp get_token!("google", code), do: Google.get_token!(code: code)
-  defp get_token!(_, _), do: raise "No matching provider available"
+  defp get_token!("github", oauth_client_params, code), do: GitHub.get_token!(code: code)
+  defp get_token!("google", oauth_client_params, code), do: Google.get_token!(oauth_client_params, code: code)
+  defp get_token!(_, _, _), do: raise "No matching provider available"
 
   defp get_user!("github", token), do: OAuth2.AccessToken.get!(token, "/user")
   defp get_user!("google", token) do
