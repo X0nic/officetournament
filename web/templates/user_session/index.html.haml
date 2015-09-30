@@ -12,6 +12,6 @@
 
         .well
           = link_to(auth_path(@conn, :index, "google"), "Sign in with Google", %{class: 'btn btn--google'})
-            -# Sign in with Google
+          = link_to(auth_path(@conn, :index, "github"), "Sign in with Github", %{class: 'btn btn--github'})
 
       .screenshot

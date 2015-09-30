@@ -11,8 +11,7 @@
         %img{src: 'images/office-ladder-logo.svg'}
     .member
       #{@current_user.name}
-      %a{href: "signout", class: 'btn btn--transparent'}
-        Sign Out
+      = link_to(user_session_path(@conn, :logout), "Sign Out", %{class: 'btn btn--transparent'})
   .ladder
     %h2 Things
 
