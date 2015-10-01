@@ -6,8 +6,11 @@ defmodule Officetournament.AuthController do
   This action is reached via `/auth/:provider` and redirects to the OAuth2 provider
   based on the chosen strategy.
   """
-  def index(conn, %{"provider" => provider}) do
-    redirect conn, external: authorize_url!(provider, %{ redirect_uri: auth_url(conn, :callback, provider) })
+  def index(conn, %{ "provider" => provider } ) do
+    redirect conn, external: authorize_url!(%{
+      "provider" => provider,
+      redirect_uri: auth_url(conn, :callback, provider)
+    })
   end
 
   @doc """
@@ -47,9 +50,9 @@ defmodule Officetournament.AuthController do
     end
   end
 
-  defp authorize_url!("github", oauth_client_params), do: GitHub.authorize_url!(oauth_client_params)
-  defp authorize_url!("google", oauth_client_params), do: Google.authorize_url!(oauth_client_params)
-  defp authorize_url!(_, _), do: raise "No matching provider available"
+  defp authorize_url!( %{ "provider" => "github" } = oauth_client_params), do: GitHub.authorize_url!(oauth_client_params)
+  defp authorize_url!( %{ "provider" => "google" } = oauth_client_params ), do: Google.authorize_url!(oauth_client_params)
+  defp authorize_url!(_), do: raise "No matching provider available"
 
   defp get_token!("github", oauth_client_params, code), do: GitHub.get_token!(oauth_client_params, code: code)
   defp get_token!("google", oauth_client_params, code), do: Google.get_token!(oauth_client_params, code: code)
