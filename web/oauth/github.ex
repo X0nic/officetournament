@@ -11,8 +11,8 @@ defmodule GitHub do
   def client(oauth_client_params) do
     OAuth2.Client.new([
       strategy: __MODULE__,
-      client_id: System.get_env("CLIENT_ID"),
-      client_secret: System.get_env("CLIENT_SECRET"),
+      client_id: System.get_env("GITHUB_CLIENT_ID"),
+      client_secret: System.get_env("GITHUB_CLIENT_SECRET"),
       redirect_uri: oauth_client_params.redirect_uri,
       site: "https://api.github.com",
       authorize_url: "https://github.com/login/oauth/authorize",
