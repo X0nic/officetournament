@@ -11,7 +11,7 @@
         %h2 Welcome to the underbelly of ping-pong
 
         .well
-          = link_to(auth_path(@conn, :index, "google"), "Sign in with Google", %{class: 'btn btn--google'})
-          = link_to(auth_path(@conn, :index, "github"), "Sign in with Github", %{class: 'btn btn--github'})
+          = link("Sign in with Google", to: auth_path(@conn, :index, "google"), class: "btn btn--google")
+          = link("Sign in with Github", to: auth_path(@conn, :index, "github"), class: "btn btn--github")
 
       .screenshot
