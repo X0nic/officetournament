@@ -2,7 +2,6 @@ defmodule Officetournament.UserSessionController do
   use Officetournament.Web, :controller
   require Logger
 
-  alias Officetournament.Login
   alias Officetournament.User
 
   plug :scrub_params, "login" when action in [:create, :update]
@@ -33,14 +32,14 @@ defmodule Officetournament.UserSessionController do
     end
   end
 
-  def login(conn, params) do
+  def login(conn, _params) do
     conn
     |> put_layout(false)
     |> put_status(401)
     |> render "unauthorized.html"
   end
 
-  def logout(conn, params) do
+  def logout(conn, _params) do
     conn
     |> clear_session
     |> put_flash(:info, "You have been logged out.")
@@ -98,7 +97,7 @@ defmodule Officetournament.UserSessionController do
     Repo.one(query)
   end
 
-  defp check_password(nil, password) do
+  defp check_password(nil, _password) do
     nil
   end
 
