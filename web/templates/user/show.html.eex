@@ -3,6 +3,16 @@
 <ul>
 
   <li>
+    <strong>Id:</strong>
+    <%= @user.id %>
+  </li>
+
+  <li>
+    <strong>Provider:</strong>
+    <%= @user.provider %>
+  </li>
+
+  <li>
     <strong>Name:</strong>
     <%= @user.name %>
   </li>
@@ -15,11 +25,6 @@
   <li>
     <strong>Username:</strong>
     <%= @user.username %>
-  </li>
-
-  <li>
-    <strong>Provider:</strong>
-    <%= @user.provider %>
   </li>
 
 </ul>
