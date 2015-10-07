@@ -5,6 +5,7 @@ defmodule Officetournament.UserController do
 
   plug :scrub_params, "user" when action in [:create, :update]
   plug Officetournament.Plugs.Authenticate
+  plug :set_layout
 
   def index(conn, _params) do
     users = Repo.all(User)
@@ -75,5 +76,10 @@ defmodule Officetournament.UserController do
     conn
     |> put_flash(:info, "User deleted successfully.")
     |> redirect(to: user_path(conn, :index))
+  end
+
+  defp set_layout(conn, _default) do
+    conn
+      |> put_layout("admin.html")
   end
 end
