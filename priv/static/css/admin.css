@@ -10,8 +10,8 @@
 body {
   font-family: 'Oswald', sans-serif;
   padding-top: 50px;
-  background: #3c444b;
-  color: #ffffff; }
+  background: #84919c;
+  color: #cccccc; }
 
 /* line 28, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 body, form, ul, table {
@@ -28,12 +28,25 @@ body, form, ul, table {
 form.link, form.button {
   display: inline; }
 
+/* line 41, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+.navbar {
+  background: #3c444b;
+  color: #ffffff; }
+
+/* line 46, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+.navbar-nav > li > a {
+  color: #ffffff; }
+
+/* line 50, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+.navbar-nav > li > a:focus {
+  color: #3c444b; }
+
 /* Custom page header */
-/* line 42, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+/* line 55, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 .header {
   border-bottom: 1px solid #e5e5e5; }
 
-/* line 45, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+/* line 58, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 .logo {
   width: 519px;
   height: 71px;
@@ -43,7 +56,7 @@ form.link, form.button {
   background-size: 519px 71px; }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-/* line 56, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+/* line 69, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 .header,
 .marketing {
   padding-right: 15px;
@@ -51,43 +64,43 @@ form.link, form.button {
 
 /* Customize container */
 @media (min-width: 768px) {
-  /* line 63, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+  /* line 76, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
   .container {
     max-width: 730px; } }
 
-/* line 67, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+/* line 80, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 .container-narrow > hr {
   margin: 30px 0; }
 
 /* Main marketing message */
-/* line 72, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+/* line 85, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5; }
 
 /* Supporting marketing content */
-/* line 78, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+/* line 91, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 .marketing {
   margin: 35px 0; }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
-  /* line 86, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+  /* line 99, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
   .header,
   .marketing {
     padding-right: 0;
     padding-left: 0; }
   /* Space out the masthead */
-  /* line 91, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+  /* line 104, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
   .header {
     margin-bottom: 30px; }
   /* Remove the bottom border on the jumbotron for visual effect */
-  /* line 95, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+  /* line 108, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
   .jumbotron {
     border-bottom: 0; } }
 
-/* line 104, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+/* line 117, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 h1 {
   font-family: 'Open Sans', sans-serif;
   font-size: 36px;
@@ -96,7 +109,7 @@ h1 {
   text-align: center;
   margin-bottom: 40px; }
 
-/* line 113, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
+/* line 126, /Users/nate/Documents/dev/officetournament/web/static/css/admin.css.scss */
 h2 {
   font-size: 24px;
   font-weight: 300;

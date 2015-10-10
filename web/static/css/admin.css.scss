@@ -21,8 +21,8 @@ $google-red: #DD4B39;
 body {
   font-family: 'Oswald', sans-serif;
   padding-top: 50px;
-  background: $slate-grey;
-  color: $white;
+  background: lighten($slate-grey, 30%);
+  color: #cccccc
 }
 
 body, form, ul, table {
@@ -36,6 +36,19 @@ body, form, ul, table {
 /* Phoenix inline forms in links and buttons */
 form.link, form.button {
   display: inline;
+}
+
+.navbar {
+  background: $slate-grey;
+  color: $white;
+}
+
+.navbar-nav>li>a {
+  color: $white;
+}
+
+.navbar-nav>li>a:focus {
+  color: $slate-grey;
 }
 
 /* Custom page header */
