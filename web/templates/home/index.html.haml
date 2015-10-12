@@ -5,16 +5,17 @@
       %li
         %a{href: 'test', class: 'btn'}
           %span.icon.icon--left.ion-plus-circled
-          Create thing
+          Create league
     .logo
-      %a{href: 'home'}
+      = link(to: home_path(@conn, :index)) do
         %img{src: 'images/office-ladder-logo.svg'}
+      - end
     .member
       #{@current_user.name}
       = link("Sign Out", to: user_session_path(@conn, :logout), class: "btn btn--transparent")
 
   .ladder
-    %h2 Things
+    %h2 Leagues
 
     Here is the stuff
 
