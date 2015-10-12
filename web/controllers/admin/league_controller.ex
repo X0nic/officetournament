@@ -1,4 +1,4 @@
-defmodule Officetournament.LeagueController do
+defmodule Officetournament.Admin.LeagueController do
   use Officetournament.Web, :controller
 
   alias Officetournament.League
@@ -24,7 +24,7 @@ defmodule Officetournament.LeagueController do
       {:ok, _league} ->
         conn
         |> put_flash(:info, "League created successfully.")
-        |> redirect(to: league_path(conn, :index))
+        |> redirect(to: admin_league_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -49,7 +49,7 @@ defmodule Officetournament.LeagueController do
       {:ok, league} ->
         conn
         |> put_flash(:info, "League updated successfully.")
-        |> redirect(to: league_path(conn, :show, league))
+        |> redirect(to: admin_league_path(conn, :show, league))
       {:error, changeset} ->
         render(conn, "edit.html", league: league, changeset: changeset)
     end
@@ -64,7 +64,7 @@ defmodule Officetournament.LeagueController do
 
     conn
     |> put_flash(:info, "League deleted successfully.")
-    |> redirect(to: league_path(conn, :index))
+    |> redirect(to: admin_league_path(conn, :index))
   end
 
   defp set_layout(conn, _default) do

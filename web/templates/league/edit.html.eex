@@ -1,6 +1,0 @@
-<h2>Edit league</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: league_path(@conn, :update, @league) %>
-
-<%= link "Back", to: league_path(@conn, :index) %>

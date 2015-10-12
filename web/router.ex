@@ -21,8 +21,13 @@ defmodule Officetournament.Router do
     get "/login/", UserSessionController, :index
     post "/login/", UserSessionController, :login
     get "/logout/", UserSessionController, :logout
-    resources "/users", UserController
-    resources "/leagues", LeagueController
+  end
+
+  scope "/admin", as: :admin do
+    pipe_through :browser # Use the default browser stack
+
+    resources "/users", Officetournament.Admin.UserController
+    resources "/leagues", Officetournament.Admin.LeagueController
   end
 
   scope "/auth", Officetournament do

@@ -1,4 +1,4 @@
-defmodule Officetournament.UserController do
+defmodule Officetournament.Admin.UserController do
   use Officetournament.Web, :controller
 
   alias Officetournament.User
@@ -27,7 +27,7 @@ defmodule Officetournament.UserController do
 
       conn
       |> put_flash(:info, "User created successfully.")
-      |> redirect(to: user_path(conn, :index))
+      |> redirect(to: admin_user_path(conn, :index))
     else
       render(conn, "new.html", changeset: changeset)
     end
@@ -54,7 +54,7 @@ defmodule Officetournament.UserController do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User updated successfully.")
-        |> redirect(to: user_path(conn, :show, user))
+        |> redirect(to: admin_user_path(conn, :show, user))
       {:error, changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
     end
@@ -63,7 +63,7 @@ defmodule Officetournament.UserController do
     #
     #   conn
     #   |> put_flash(:info, "User updated successfully.")
-    #   |> redirect(to: user_path(conn, :index))
+    #   |> redirect(to: admin_user_path(conn, :index))
     # else
     #   render(conn, "edit.html", user: user, changeset: changeset)
     # end
@@ -75,7 +75,7 @@ defmodule Officetournament.UserController do
 
     conn
     |> put_flash(:info, "User deleted successfully.")
-    |> redirect(to: user_path(conn, :index))
+    |> redirect(to: admin_user_path(conn, :index))
   end
 
   defp set_layout(conn, _default) do

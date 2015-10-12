@@ -23,8 +23,8 @@
               <img src="/images/office-ladder-logo.svg" />
             </a></li>
             <li "<%= "/" |> active(@conn) |> raw %>"><a href="<%= home_path @conn, :index %>">Home</a></li>
-            <li "<%= "/users" |> active(@conn) |> raw %>"><a href="<%= user_path @conn, :index %>">Users</a></li>
-            <li "<%= "/leagues" |> active(@conn) |> raw %>"><a href="<%= league_path @conn, :index %>">Leagues</a></li>
+            <li "<%= "/users" |> active(@conn) |> raw %>"><a href="<%= admin_user_path @conn, :index %>">Users</a></li>
+            <li "<%= "/leagues" |> active(@conn) |> raw %>"><a href="<%= admin_league_path @conn, :index %>">Leagues</a></li>
             <li "<%= "/logout" |> active(@conn) |> raw %>"><a href="<%= user_session_path @conn, :logout %>">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
