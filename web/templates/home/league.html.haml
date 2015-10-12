@@ -1,0 +1,25 @@
+-# .player[@league]
+.player#player-id
+  .player__image
+    %img{ src: "images/office-ladder-logo.svg", style: "height:180px; width:180px;"}
+    -# = link to: resource_url(@league) do
+      -# - if league.sport == 'foosball'
+      -#   = image_tag("office-ladder-logo-foos.svg", style: 'height:180px; width:180px;')
+      -# - else
+      -# = image_tag("office-ladder-logo.svg", style: 'height:180px; width:180px;')
+    -# - end
+
+  .player__info
+    = link(@league.name, to: "#", class: "player__name")
+
+    %table.stat-table
+      %thead
+        %tr
+          %th GP
+          %th Members
+      %tbody
+        %tr
+          %td= 1
+          %td= 2
+          -# %td= @league.games.count
+          -# %td= @league.memberships.count

@@ -5,7 +5,7 @@
       %li
         %a{href: 'test', class: 'btn'}
           %span.icon.icon--left.ion-plus-circled
-          Create league
+          Create leagke
     .logo
       = link(to: home_path(@conn, :index)) do
         %img{src: 'images/office-ladder-logo.svg'}
@@ -17,7 +17,7 @@
   .ladder
     %h2 Leagues
 
-    Here is the stuff
+    = render("leagues.html", leagues: @leagues)
 
   .recent
     %h2 Recent Games

@@ -1,0 +1,26 @@
+<h2>Listing leagues</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for league <- @leagues do %>
+    <tr>
+      <td><%= league.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: league_path(@conn, :show, league), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: league_path(@conn, :edit, league), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: league_path(@conn, :delete, league), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New league", to: league_path(@conn, :new) %>
