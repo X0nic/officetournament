@@ -1,0 +1,32 @@
+.wrapper
+  .header
+    %ul
+      %li
+        = link(to: home_path(@conn, :index), class: "btn") do
+          %span.icon.icon--left.ion-android-arrow-back
+          Back to Leagues
+        - end
+    .logo
+      = link(to: home_path(@conn, :index)) do
+        %img{src: '/images/office-ladder-logo.svg'}
+      - end
+    .member
+      #{current_user.name}
+      = link("Sign Out", to: user_session_path(@conn, :logout), class: "btn btn--transparent")
+
+
+  %h1 Create League
+  = render "form.html", changeset: @changeset, action: league_path(@conn, :create)
+
+  -# = simple_form_for resource, url: collection_url do |form|
+  -#   -if resource.errors.any?
+  -#     .error_explanation
+  -#       %h2 You Dropped The Ball!
+  -#       %ul
+  -#         - resource.errors.full_messages.each do |msg|
+  -#           %li= msg
+  -#
+  -#   = render partial: 'form', object: form
+  -#
+  -#   .well
+  -#     = form.button :submit
