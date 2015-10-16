@@ -1,5 +1,5 @@
-<%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
+<%= bootstrap_form_for @changeset, @action, fn f -> %>
+  <%= if f.errors != [] do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below:</p>
       <ul>
@@ -10,12 +10,7 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= label f, :name, "Name", class: "control-label" %>
-    <%= text_input f, :name, class: "form-control" %>
-  </div>
+  <%= bootstrap_text_input f, :name, "Name", class: "form-control" %>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
+  <%= bootstrap_submit "Submit" %>
 <% end %>

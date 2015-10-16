@@ -23,11 +23,11 @@ exports.config = {
     stylesheets: {
       joinTo: {
         'css/app.css': /^(web\/static\/css\/app)|^(web\/static\/vendor)/,
-        'css/admin.css': /^(web\/static\/css\/admin)|^(web\/static\/css\/bootstrap)/
+        'css/admin.css': /^(web\/static\/css\/admin)|^(web\/static\/vendor\/css)/
       },
       order: {
         before: [
-          'web/static/css/bootstrap.css'
+          'web/static/vendor/css/bootstrap.css'
         ]
       }
       // joinTo: 'css/app.css'

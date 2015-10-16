@@ -14,8 +14,8 @@
       #{current_user.name}
       = link("Sign Out", to: user_session_path(@conn, :logout), class: "btn btn--transparent")
 
-
-  %h1 Create League
+.container
+  %h2 Create League
   = render "form.html", changeset: @changeset, action: league_path(@conn, :create)
 
   -# = simple_form_for resource, url: collection_url do |form|
