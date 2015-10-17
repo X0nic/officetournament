@@ -7383,6 +7383,15 @@ h2 {
   .member .btn {
     margin-left: 10px; }
 
+.form-group label {
+  font-size: 16px;
+  font-weight: 300;
+  color: #f5f5f5;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px; }
+
 .ladder {
   float: left;
   width: 812px;
