@@ -23,7 +23,7 @@ defmodule Officetournament.LeagueController do
       {:ok, _league} ->
         conn
         |> put_flash(:info, "League created successfully.")
-        |> redirect(to: league_path(conn, :index))
+        |> redirect(to: home_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
