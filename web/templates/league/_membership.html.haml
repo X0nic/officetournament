@@ -1,0 +1,10 @@
+.player#played-id
+  .player__image
+  -#   .rank{ class: ['gold', 'silver', 'bronze'][membership_counter] }= membership_counter + 1
+  -#
+  -#   = link_to league_membership_url(resource, membership) do
+  -#     = image_tag(membership.avatar)
+  -#
+  -# .player__info
+  -#   = link_to membership.name, league_membership_url(resource, membership), class: 'player__name'
+  -#   = render partial: 'stat_table', locals: {membership: membership}

@@ -18,7 +18,7 @@
   .ladder
     %h2 Leagues
 
-    = render("leagues.html", leagues: @leagues)
+    = render("leagues.html", leagues: @leagues, conn: @conn)
 
   .recent
     %h2 Recent Games

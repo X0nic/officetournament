@@ -1,0 +1,30 @@
+.wrapper
+  = render "_header.html", conn: @conn
+  .ladder
+    %h2 League Standings
+
+    = render("_membership.html")
+    -# - if resource.betting?
+    -#   = render(partial: 'membership', collection: resource.memberships.joins(:ratings).order('ratings.points desc').with_games_played)
+    -# - else
+    -#   = render(partial: 'membership', collection: resource.memberships.order(skill: :desc, created_at: :desc).with_games_played)
+
+  -# .recent
+  -#   - unless resource.trophies.empty?
+  -#     %h2 Trophies
+  -#     %span.streak-leader The Dictator: #{resource.dictator_name}
+  -#     %span.streak-leader The Potato: #{resource.potato_name}
+  -#   %h2 Longest Streak
+  -#   - if resource.longest_streak && resource.longest_streak.streak > 2
+  -#     %span.streak-leader #{resource.longest_streak.name} with #{resource.longest_streak.streak} wins
+  -#   - else
+  -#     %span.streak-leader No Current Streaks
+  -#
+  -# .recent
+  -#   %h2 Recent Games
+  -#
+  -#   .recent__games
+  -#     - if resource.games.recent.present?
+  -#       = render(partial: 'game', collection: resource.games.recent)
+  -#     - else
+  -#       %span.no-data-label No Data Available
