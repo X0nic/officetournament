@@ -9,6 +9,14 @@
     -# - else
     -#   = render(partial: 'membership', collection: resource.memberships.order(skill: :desc, created_at: :desc).with_games_played)
 
+  .recent
+    %h2 Longest Streak
+    %span.streak-leader No Current Streaks
+
+  .recent
+    %h2 Recent Games
+    .recent__games
+      %span.no-data-label No Data Available
   -# .recent
   -#   - unless resource.trophies.empty?
   -#     %h2 Trophies
