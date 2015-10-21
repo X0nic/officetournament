@@ -1,5 +1,5 @@
 .wrapper
-  = render Officetournament.SharedView, "_header.html", conn: @conn, return_url: league_path(@conn, :new), btn_text: "Create league"
+  = render "_header.html", conn: @conn, return_url: league_path(@conn, :new), btn_text: "Create league"
 
   .ladder
     %h2 Leagues
