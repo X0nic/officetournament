@@ -1,19 +1,5 @@
 .wrapper
-
-  .header
-    %ul
-      %li
-        = link(to: league_path(@conn, :new), class: "btn") do
-          %span.icon.icon--left.ion-plus-circled
-          Create league
-        - end
-    .logo
-      = link(to: home_path(@conn, :index)) do
-        %img{src: 'images/office-ladder-logo.svg'}
-      - end
-    .member
-      #{@current_user.name}
-      = link("Sign Out", to: user_session_path(@conn, :logout), class: "btn btn--transparent")
+  = render Officetournament.SharedView, "_header.html", conn: @conn, return_url: league_path(@conn, :new), btn_text: "Create league"
 
   .ladder
     %h2 Leagues

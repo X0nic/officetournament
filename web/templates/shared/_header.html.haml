@@ -1,10 +1,15 @@
-.wrapper
-  .header
-    .logo
-      = link(to: home_path(@conn, :index)) do
-        %img{src: '/images/office-ladder-logo.svg'}
+.header
+  %ul
+    %li
+      = link(to: @return_url, class: "btn") do
+        %span.icon.icon--left.ion-plus-circled
+        = @btn_text
       - end
-    .member
-      #{current_user.name}
-      = link("Sign Out", to: user_session_path(@conn, :logout), class: "btn btn--transparent")
+  .logo
+    = link(to: home_path(@conn, :index)) do
+      %img{src: '/images/office-ladder-logo.svg'}
+    - end
+  .member
+    #{current_user.name}
+    = link("Sign Out", to: user_session_path(@conn, :logout), class: "btn btn--transparent")
 
