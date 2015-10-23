@@ -1,10 +1,5 @@
 .header
-  %ul
-    %li
-      = link(to: @return_url, class: "btn") do
-        %span.icon.icon--left.ion-plus-circled
-        = @btn_text
-      - end
+  = @inner_html
   .logo
     = link(to: home_path(@conn, :index)) do
       %img{src: '/images/office-ladder-logo.svg'}

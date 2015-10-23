@@ -1,18 +1,5 @@
 .wrapper
-  .header
-    %ul
-      %li
-        = link(to: home_path(@conn, :index), class: "btn") do
-          %span.icon.icon--left.ion-android-arrow-back
-          Back to Leagues
-        - end
-    .logo
-      = link(to: home_path(@conn, :index)) do
-        %img{src: '/images/office-ladder-logo.svg'}
-      - end
-    .member
-      #{current_user.name}
-      = link("Sign Out", to: user_session_path(@conn, :logout), class: "btn btn--transparent")
+  = render "header_new.html", conn: @conn
 
 .container
   %h2 Create League
