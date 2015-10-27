@@ -2,6 +2,7 @@ defmodule Officetournament.LeagueController do
   use Officetournament.Web, :controller
 
   alias Officetournament.League
+  alias Officetournament.Membership
 
   plug :scrub_params, "league" when action in [:create, :update]
   plug Officetournament.Plugs.Authenticate
@@ -64,5 +65,21 @@ defmodule Officetournament.LeagueController do
     conn
     |> put_flash(:info, "League deleted successfully.")
     |> redirect(to: league_path(conn, :index))
+  end
+
+  def join(conn, %{"membership" => membership_params}) do
+    changeset = Membership.changeset(%Membership{}, membership_params)
+
+    case Repo.insert(changeset) do
+      {:ok, _membership} ->
+        conn
+        |> put_flash(:info, "You have joined the league sucessfully")
+        |> redirect(to: home_path(conn, :index))
+      {:error, changeset} ->
+        conn
+        |> put_flash(:info, "Error joining league")
+        |> redirect(to: home_path(conn, :index))
+        # render(conn, "new.html", changeset: changeset)
+    end
   end
 end
