@@ -3,11 +3,13 @@ defmodule Officetournament.Repo.Migrations.CreateMembership do
 
   def change do
     create table(:memberships) do
-      add :user_id, :integer
-      add :league_id, :integer
+      add :user_id, references(:users)
+      add :league_id, references(:leagues)
 
       timestamps
     end
+
+    create unique_index(:memberships, [:user_id, :league_id])
 
   end
 end

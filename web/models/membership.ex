@@ -20,5 +20,9 @@ defmodule Officetournament.Membership do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> foreign_key_constraint(:user_id)
+    |> foreign_key_constraint(:league_id)
+    # |> unique_constraint(:user_id, name: :memberships_user_id_league_id_index)
+    # |> unique_constraint(:league_id, name: :memberships_user_id_league_id_index)
   end
 end
