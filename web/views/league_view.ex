@@ -11,6 +11,11 @@ defmodule Officetournament.LeagueView do
     render("header.html", Dict.put(assigns, :inner_html, inner_html))
   end
 
+  def render("header_join.html", assigns) do
+    inner_html = render("_header_join.html", assigns)
+    render("header.html", Dict.put(assigns, :inner_html, inner_html))
+  end
+
   def render("header.html", assigns) do
     Officetournament.SharedView.render("_header.html", assigns)
   end

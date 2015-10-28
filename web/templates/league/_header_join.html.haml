@@ -1,0 +1,6 @@
+  %ul
+    %li
+      = link(to: league_path(@conn, :join, @league.id), class: "btn", method: :post) do
+        %span.icon.icon--left.ion-plus-circled
+        Join League
+      - end

@@ -67,8 +67,8 @@ defmodule Officetournament.LeagueController do
     |> redirect(to: league_path(conn, :index))
   end
 
-  def join(conn, %{"membership" => membership_params}) do
-    changeset = Membership.changeset(%Membership{}, membership_params)
+  def join(conn, %{"id" => id}) do
+    changeset = Membership.changeset(%Membership{}, %{"league_id" => id, "user_id" => Authenticate.current_user(conn).id})
 
     case Repo.insert(changeset) do
       {:ok, _membership} ->
