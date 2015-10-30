@@ -75,11 +75,19 @@ defmodule Officetournament.LeagueController do
         conn
         |> put_flash(:info, "You have joined the league sucessfully")
         |> redirect(to: home_path(conn, :index))
-      {:error, changeset} ->
+      {:error, results} ->
         conn
-        |> put_flash(:info, "Error joining league")
+        |> put_flash(:error, friendly_error_message(results) )
         |> redirect(to: home_path(conn, :index))
         # render(conn, "new.html", changeset: changeset)
     end
+  end
+
+  defp friendly_error_message( %{ errors: [ league_id: _ ] } ) do
+   "You have already joined this league"
+  end
+
+  defp friendly_error_message(_) do
+   "Error joining league"
   end
 end
