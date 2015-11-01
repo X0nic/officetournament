@@ -3,6 +3,7 @@ defmodule Officetournament.League do
 
   schema "leagues" do
     field :name, :string
+    has_many :memberships, Officetournament.Membership
 
     timestamps
   end
