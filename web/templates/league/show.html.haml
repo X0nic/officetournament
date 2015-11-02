@@ -3,7 +3,7 @@
   .ladder
     %h2 League Standings
 
-    = render("_membership.html")
+    = render("_memberships.html", conn: @conn, memberships: @league.memberships)
     -# - if resource.betting?
     -#   = render(partial: 'membership', collection: resource.memberships.joins(:ratings).order('ratings.points desc').with_games_played)
     -# - else

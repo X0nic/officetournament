@@ -31,7 +31,7 @@ defmodule Officetournament.LeagueController do
   end
 
   def show(conn, %{"id" => id}) do
-    league = Repo.get!(League, id)
+    league = Repo.get!(League, id) |> Repo.preload(:users)
     render(conn, "show.html", league: league)
   end
 

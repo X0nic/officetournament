@@ -2,8 +2,10 @@ defmodule Officetournament.Membership do
   use Officetournament.Web, :model
 
   schema "memberships" do
-    field :user_id, :integer
-    field :league_id, :integer
+    # field :user_id, :integer
+    # field :league_id, :integer
+    belongs_to :league, Officetournament.League
+    belongs_to :user, Officetournament.User
 
     timestamps
   end

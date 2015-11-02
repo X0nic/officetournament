@@ -7,6 +7,7 @@ defmodule Officetournament.User do
     field :username, :string
     field :password, :string
     field :provider, :string
+    has_many :users, Officetournament.User
 
     timestamps
   end

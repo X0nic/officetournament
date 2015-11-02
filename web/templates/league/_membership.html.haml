@@ -1,5 +1,9 @@
 .player#played-id
   .player__image
+  .player__info
+    %a{href: "#"}
+      =@membership.user.name
+    -# = link membership.name, to: league_membership_url(resource, membership), class: 'player__name'
   -#   .rank{ class: ['gold', 'silver', 'bronze'][membership_counter] }= membership_counter + 1
   -#
   -#   = link_to league_membership_url(resource, membership) do
