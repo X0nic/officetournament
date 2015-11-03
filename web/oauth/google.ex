@@ -17,16 +17,20 @@ defmodule Google do
       site: "https://accounts.google.com",
       authorize_url: "/o/oauth2/auth",
       token_url: "/o/oauth2/token",
-      params: %{scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"}
     ])
   end
 
   def authorize_url!(oauth_client_params \\ %{}, params \\ []) do
-    OAuth2.Client.authorize_url!(client(oauth_client_params), params)
+    oauth_client_params
+    |> client
+    |> put_param(:scope, "email profile openid")
+    |> OAuth2.Client.authorize_url!(params)
   end
 
   def get_token!(oauth_client_params \\ %{}, params \\ [], headers \\ []) do
-    OAuth2.Client.get_token!(client(oauth_client_params), params)
+    oauth_client_params
+    |> client
+    |> OAuth2.Client.get_token!(params)
   end
 
   # Strategy Callbacks

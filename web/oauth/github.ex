@@ -21,11 +21,15 @@ defmodule GitHub do
   end
 
   def authorize_url!(oauth_client_params \\ %{}, params \\ []) do
-    OAuth2.Client.authorize_url!(client(oauth_client_params), params)
+    oauth_client_params
+    |> client
+    |> OAuth2.Client.authorize_url!(params)
   end
 
   def get_token!(oauth_client_params \\ %{}, params \\ [], headers \\ []) do
-    OAuth2.Client.get_token!(client(oauth_client_params), params)
+    oauth_client_params
+    |> client
+    |> OAuth2.Client.get_token!(params)
   end
 
   # Strategy Callbacks
