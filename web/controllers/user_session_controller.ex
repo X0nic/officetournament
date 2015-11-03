@@ -77,6 +77,7 @@ defmodule Officetournament.UserSessionController do
   def create_from_auth_params("google", user_auth_params) do
     %User{
       email: user_auth_params["email"],
+      name: user_auth_params["name"],
       provider: "google"
     } |> Repo.insert!
   end

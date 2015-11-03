@@ -57,6 +57,6 @@ defmodule Officetournament.AuthController do
 
   defp get_user!("github", token), do: OAuth2.AccessToken.get!(token, "/user")
   defp get_user!("google", token) do
-    OAuth2.AccessToken.get!(token, "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=#{token.access_token}")
+    OAuth2.AccessToken.get!(token, "https://www.googleapis.com/plus/v1/people/me/openIdConnect")
   end
 end
