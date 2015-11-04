@@ -3,8 +3,8 @@ defmodule Officetournament.Repo.Migrations.CreateMembership do
 
   def change do
     create table(:memberships) do
-      add :user_id, references(:users)
-      add :league_id, references(:leagues)
+      add :user_id, references(:users, on_delete: :delete_all)
+      add :league_id, references(:leagues, on_delete: :delete_all)
 
       timestamps
     end
