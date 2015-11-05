@@ -7,7 +7,7 @@ defmodule Officetournament.HomeController do
   plug :scrub_params, "home" when action in [:create, :update]
 
   def index(conn, _params) do
-    leagues = Repo.all(League)
+    leagues = Repo.all(League) |> Repo.preload(:memberships)
     conn
     |> render("index.html", leagues: leagues)
   end
