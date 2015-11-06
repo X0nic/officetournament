@@ -22,6 +22,5 @@
       %tbody
         %tr
           %td= 1
-          %td= 2
+          %td= @league.memberships |> Enum.count
           -# %td= @league.games.count
-          -# %td= @league.memberships.count
