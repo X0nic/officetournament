@@ -32,7 +32,8 @@ defmodule Officetournament.LeagueController do
 
   def show(conn, %{"id" => id}) do
     league = Repo.get!(League, id) |> Repo.preload(:users)
-    render(conn, "show.html", league: league)
+    member_count = Repo.one(from(l in League, select: count(l.id), where: l.id == ^id))
+    render(conn, "show.html", league: league, member_count: member_count)
   end
 
   def edit(conn, %{"id" => id}) do
