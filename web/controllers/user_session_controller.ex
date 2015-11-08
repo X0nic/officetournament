@@ -70,6 +70,7 @@ defmodule Officetournament.UserSessionController do
       name: user_auth_params["name"],
       username: user_auth_params["login"],
       email: user_auth_params["email"],
+      avatar_url: user_auth_params["avatar_url"],
       provider: "github"
     } |> Repo.insert!
   end
@@ -78,6 +79,7 @@ defmodule Officetournament.UserSessionController do
     %User{
       email: user_auth_params["email"],
       name: user_auth_params["name"],
+      avatar_url: user_auth_params["picture"],
       provider: "google"
     } |> Repo.insert!
   end
