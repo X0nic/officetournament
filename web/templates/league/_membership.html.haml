@@ -1,7 +1,7 @@
 .player#played-id
   .player__image
     %a{href: "#"}
-      = tag(:img, src: @membership.user.avatar_url)
+      = tag(:img, src: ViewHelper.avatar_path(@membership.user))
   .player__info
     %a{href: "#"}
       =@membership.user.name

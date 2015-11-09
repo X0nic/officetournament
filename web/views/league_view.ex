@@ -1,5 +1,6 @@
 defmodule Officetournament.LeagueView do
   use Officetournament.Web, :view
+  alias Officetournament.ViewHelper
 
   def render("_header.html", assigns) do
     inner_html = render("_header_back.html", assigns)
