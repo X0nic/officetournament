@@ -3,7 +3,7 @@
     %a{href: "#"}
       = tag(:img, src: ViewHelper.avatar_path(@membership.user))
   .player__info
-    %a{href: "#"}
+    %a{href: "#", class: "player__name"}
       =@membership.user.name
     -# = link membership.name, to: league_membership_url(resource, membership), class: 'player__name'
   -#   .rank{ class: ['gold', 'silver', 'bronze'][membership_counter] }= membership_counter + 1
