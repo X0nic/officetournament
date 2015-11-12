@@ -5,6 +5,7 @@
   .player__info
     %a{href: "#", class: "player__name"}
       =@membership.user.name
+    = render "_stat_table.html", membership: @membership
     -# = link membership.name, to: league_membership_url(resource, membership), class: 'player__name'
   -#   .rank{ class: ['gold', 'silver', 'bronze'][membership_counter] }= membership_counter + 1
   -#
