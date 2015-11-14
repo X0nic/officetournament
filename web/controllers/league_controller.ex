@@ -31,9 +31,11 @@ defmodule Officetournament.LeagueController do
   end
 
   def show(conn, %{"id" => id}) do
+    user = Authenticate.current_user(conn)
     league = Repo.get!(League, id) |> Repo.preload(:users)
     member_count = Repo.one(from(l in League, select: count(l.id), where: l.id == ^id))
-    render(conn, "show.html", league: league, member_count: member_count)
+    hide_join_button = league.memberships |> Enum.any?(fn(m) -> m.user_id == user.id end )
+    render(conn, "show.html", league: league, member_count: member_count, hide_join_button: hide_join_button)
   end
 
   def edit(conn, %{"id" => id}) do
