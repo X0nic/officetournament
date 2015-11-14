@@ -74,10 +74,10 @@ defmodule Officetournament.LeagueController do
     changeset = Membership.changeset(%Membership{}, %{"league_id" => id, "user_id" => Authenticate.current_user(conn).id})
 
     case Repo.insert(changeset) do
-      {:ok, _membership} ->
+      {:ok, membership} ->
         conn
         |> put_flash(:info, "You have joined the league sucessfully")
-        |> redirect(to: home_path(conn, :index))
+        |> redirect(to: league_path(conn, :show, membership.league_id))
       {:error, results} ->
         conn
         |> put_flash(:error, friendly_error_message(results) )
