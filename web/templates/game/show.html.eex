@@ -1,0 +1,23 @@
+<h2>Show game</h2>
+
+<ul>
+
+  <li>
+    <strong>League:</strong>
+    <%= @game.league_id %>
+  </li>
+
+  <li>
+    <strong>Home:</strong>
+    <%= @game.home_id %>
+  </li>
+
+  <li>
+    <strong>Away:</strong>
+    <%= @game.away_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: game_path(@conn, :edit, @game) %>
+<%= link "Back", to: game_path(@conn, :index) %>
