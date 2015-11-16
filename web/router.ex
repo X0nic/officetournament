@@ -23,6 +23,7 @@ defmodule Officetournament.Router do
     get "/logout/", UserSessionController, :logout
     resources "/leagues", LeagueController
     post "/leagues/:id/join", LeagueController, :join
+    resources "/games", GameController
   end
 
   scope "/admin", as: :admin do
