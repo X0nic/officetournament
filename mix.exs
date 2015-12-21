@@ -36,7 +36,7 @@ defmodule Officetournament.Mixfile do
      {:phoenix_haml, "~> 0.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 1.1"},
+     {:comeonin, "1.3.0"},
      {:oauth2, "~> 0.3"}
     ]
   end
