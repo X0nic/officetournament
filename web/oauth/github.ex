@@ -28,6 +28,7 @@ defmodule GitHub do
 
   def get_token!(oauth_client_params \\ %{}, params \\ [], headers \\ []) do
     oauth_client_params
+    # {:ok, %{body: body_params} } =oauth_client_params
     |> client
     |> OAuth2.Client.get_token!(params)
   end

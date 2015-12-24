@@ -85,6 +85,8 @@ defmodule Officetournament.UserSessionController do
   end
 
   def find_by_user_params("github", user_params) do
+    # %OAuth2.Response{"login" => username} = user_params
+    # %OAuth2.Response{"body" => username} = user_params
     %{"login" => username} = user_params
     query = from u in User,
             where: u.username == ^username and u.provider == ^"github",
