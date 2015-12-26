@@ -33,6 +33,10 @@ defmodule Google do
     |> OAuth2.Client.get_token!(params)
   end
 
+  def get_user!(token) do
+   OAuth2.AccessToken.get!(token, "https://www.googleapis.com/plus/v1/people/me/openIdConnect")
+  end
+
   # Strategy Callbacks
 
   def authorize_url(client, params) do

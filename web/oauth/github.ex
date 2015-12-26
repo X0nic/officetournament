@@ -33,6 +33,10 @@ defmodule GitHub do
     |> OAuth2.Client.get_token!(params)
   end
 
+  def get_user!(token) do
+   OAuth2.AccessToken.get!(token, "/user")
+  end
+
   # Strategy Callbacks
 
   def authorize_url(client, params) do
