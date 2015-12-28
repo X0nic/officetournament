@@ -4,9 +4,9 @@ defmodule Officetournament.Mixfile do
   def project do
     [app: :officetournament,
      version: "0.0.1",
-     elixir: "~> 1.0",
+     elixir: "~> 1.1",
      elixirc_paths: elixirc_paths(Mix.env),
-     compilers: [:phoenix] ++ Mix.compilers,
+     compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -17,7 +17,7 @@ defmodule Officetournament.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Officetournament, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex, :comeonin, :oauth2]]
   end
 
@@ -30,14 +30,15 @@ defmodule Officetournament.Mixfile do
   # Type `mix help deps` for examples and options
   defp deps do
     [{:phoenix, "~> 1.1.0"},
-     {:phoenix_ecto, "~> 1.1"},
+     {:phoenix_ecto, "~> 2.0"},
      {:postgrex, ">= 0.0.0"},
-     {:phoenix_html, "~> 2.1"},
+     {:phoenix_html, "~> 2.3"},
      {:phoenix_haml, github: "chrismccord/phoenix_haml"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 1.1"},
-     {:oauth2, "~> 0.3"}
+     {:oauth2, "~> 0.3"},
+     {:gettext, "~> 0.9"}
     ]
   end
 end

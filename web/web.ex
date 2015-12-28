@@ -18,7 +18,10 @@ defmodule Officetournament.Web do
 
   def model do
     quote do
-      use Ecto.Model
+      use Ecto.Schema
+
+      import Ecto
+      import Ecto.Changeset
     end
   end
 
@@ -27,7 +30,7 @@ defmodule Officetournament.Web do
       use Phoenix.Controller
 
       alias Officetournament.Repo
-      import Ecto.Model
+      import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 
       alias Officetournament.Plugs.Authenticate
@@ -50,6 +53,8 @@ defmodule Officetournament.Web do
       import Officetournament.Form
 
       import Officetournament.Router.Helpers
+      import Officetournament.ErrorHelpers
+      import Officetournament.Gettext
 
       alias Officetournament.Plugs.Authenticate
 
@@ -80,7 +85,7 @@ defmodule Officetournament.Web do
       use Phoenix.Channel
 
       alias Officetournament.Repo
-      import Ecto.Model
+      import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 
     end
